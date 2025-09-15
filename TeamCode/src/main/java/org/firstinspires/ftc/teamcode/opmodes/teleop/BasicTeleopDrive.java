@@ -7,6 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.MecanumDrive;
+//trst
 
 @TeleOp
 public class BasicTeleopDrive extends LinearOpMode {
@@ -32,3 +33,4 @@ public class BasicTeleopDrive extends LinearOpMode {
 //Wesley and Mack
 //Are all cool
 // :P
+//aaaahh
