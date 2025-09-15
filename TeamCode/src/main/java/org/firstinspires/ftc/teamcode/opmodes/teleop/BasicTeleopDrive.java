@@ -27,8 +27,8 @@ public class BasicTeleopDrive extends LinearOpMode {
     }
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 //ben and greyson
 //Wesley and Mack
 //Are all cool
->>>>>>> 7ed5143d2e4aa1639ce916f40dce788f9ff480f8
 // :P
