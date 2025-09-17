@@ -15,24 +15,32 @@ public class ControlHubTest extends LinearOpMode {
         Telemetry tel = FtcDashboard.getInstance().getTelemetry();
 
         Servo test_servo = hardwareMap.get(Servo.class, "test_servo");
-        DcMotor test_motor = hardwareMap.get(DcMotor.class, "test_motor");
-        // TouchSensor test_touch = hardwareMap.get(TouchSensor.class, "test_touch");
+//        DcMotor test_motor = hardwareMap.get(DcMotor.class, "test_motor");
+         TouchSensor test_touch = hardwareMap.get(TouchSensor.class, "test_touch");
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
 
+        int counter = 0;
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
-            if (touchSensor.isPressed()){
+            counter += 1;
+            if (counter > 1000) {
+                counter = 0;
+            }
+            tel.addData("Counter", counter);
+            tel.addData("Touch Sensor Pressed", test_touch.isPressed());
+            tel.addData("Touch Sensor Value", test_touch.getValue());
+//            test_servo.setPosition(counter / 1000.0);
+
+            if (test_touch.isPressed()) {
                 //Touch Sensor is pressed.
-                test_motor.setPower(0.3);
+//                test_motor.setPower(0.3);
                 test_servo.setPosition(1);
-                tel.addData("Touch Sensor", "Is Pressed");
             } else {
                 //Touch Sensor is not pressed
-                test_motor.setPower(0);
+//                test_motor.setPower(0);
                 test_servo.setPosition(0);
-                tel.addData("Touch Sensor", "Is Not Pressed");
             }
             tel.update();
         }
