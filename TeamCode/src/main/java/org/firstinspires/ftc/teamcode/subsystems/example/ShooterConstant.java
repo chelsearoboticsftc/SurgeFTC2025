@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode.subsystems.example;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-public class SampleSubsystemConstantsSampleSubsystemConstants {
+public class ShooterConstant {
     //Add subsystem constants here.  Use this to avoid magic numbers
     public static final int MOTOR_NAME_THRESHOLD = 5;
     public static final DcMotor.ZeroPowerBehavior MOTOR_NAME_ZERO_POWER_BEHAVIOR = DcMotor.ZeroPowerBehavior.BRAKE;
