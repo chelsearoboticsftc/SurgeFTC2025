@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
-public class intake {
+public class Vision {
 
     //Declare HW objects here
 
@@ -15,7 +15,7 @@ public class intake {
     private int motorSetPosition = 0;
     private double motorPower = 0;
 
-    public intake(HardwareMap hardwareMap){
+    public Vision(HardwareMap hardwareMap){
         //Constructor for the SampleSubsystem class.  This code is called everytime you create
         //an object of this class type.  Rename to match your class name.
 
