@@ -9,7 +9,8 @@ public class Shooter {
     //Declare HW objects here
 
     //Example declare a DcMotorEx object as part of this class called 'motorName'
-    DcMotorEx motorName;
+    DcMotorEx shooter1;
+
 
     //Declare any other global variables for this class here
     private int motorSetPosition = 0;
@@ -26,18 +27,18 @@ public class Shooter {
         //configuration exactly.  This is the connection with the Control Hub Config
 
         //Example code defining a DcMotor object to a motor in the config called "motorName"
-        this.motorName = hardwareMap.get(DcMotorEx.class,"motorName");
+        this.shooter1 = hardwareMap.get(DcMotorEx.class,"shooter1");
 
         //This defines the behavior at zero power (brake or coast)
-        motorName.setZeroPowerBehavior(SampleSubsystemConstants.MOTOR_NAME_ZERO_POWER_BEHAVIOR);
+        shooter1.setZeroPowerBehavior(SampleSubsystemConstants.MOTOR_NAME_ZERO_POWER_BEHAVIOR);
 
         //This defines the motor direction (forward or reversed)
-        motorName.setDirection(SampleSubsystemConstants.MOTOR_NAME_DIRECTION);
+        shooter1.setDirection(SampleSubsystemConstants.MOTOR_NAME_DIRECTION);
 
         /* This defines the motor velocity PIDF gains.  Velocity PIDF values determine control    *
          * around a target velocity (setTargetVelocity) OR how fast the system responds to a      *
          * change in set position (setTargetPosition).                                            */
-        motorName.setVelocityPIDFCoefficients(
+        shooter1.setVelocityPIDFCoefficients(
                 SampleSubsystemConstants.MOTOR_NAME_VELOCITY_P, //Proportional Gain
                 SampleSubsystemConstants.MOTOR_NAME_VELOCITY_I, //Integral Gain
                 SampleSubsystemConstants.MOTOR_NAME_VELOCITY_D, //Derivative Gain
@@ -46,7 +47,7 @@ public class Shooter {
         /* This defines the motor position PID P gain. Position control only needs P gain since   *
          * once the system reaches the target position since once at position you're only         *
          * disturbances in the system                                                             */
-        motorName.setPositionPIDFCoefficients(
+        shooter1.setPositionPIDFCoefficients(
                 SampleSubsystemConstants.MOTOR_NAME_POSITION_P);//Proportional Gain
 
         //motorName.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -73,34 +74,34 @@ public class Shooter {
 
         //Call setTargetPositionTolerance to tell REV controller how close to the target position
         //can be considered "at" the target position (e.g. target postion +/- tolerance)
-        motorName.setTargetPositionTolerance(SampleSubsystemConstants.MOTOR_NAME_POSITION_TOLERANCE);
+        shooter1.setTargetPositionTolerance(SampleSubsystemConstants.MOTOR_NAME_POSITION_TOLERANCE);
 
         //Call setVelocity to tell the REV controller how fast you want to get to the target position
-        motorName.setVelocity(SampleSubsystemConstants.MOTOR_NAME_VELOCITY_TICKS_PER_S);
+        shooter1.setVelocity(SampleSubsystemConstants.MOTOR_NAME_VELOCITY_TICKS_PER_S);
 
         //Call setTargetPosition to tell the REV controller the position you want to move to
-        motorName.setTargetPosition(motorSetPosition);
+        shooter1.setTargetPosition(motorSetPosition);
 
         //Call setMode(DcMotor.RunMode.RUN_TO_POSITION) to tell the REV controller you're ready to
         //move to position
-        motorName.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        shooter1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
 
     //Use convention "set<Parameter>" to name methods which set something. Example set<motorName>Power
     public void setMotorPower(double power){
         //Note: Calling setPower stops position and Velocity control!!!!
         motorPower = power;
-        motorName.setPower(power);
+        shooter1.setPower(power);
     }
 
     //Use convention "get<Parameter>" to name methods which return something
     //Example return motorName position
     public int getMotorPosition(){
-        return motorName.getCurrentPosition();
+        return shooter1.getCurrentPosition();
     }
 
     public int getMotorTargetPosition(){
-        return motorName.getTargetPosition();
+        return shooter1.getTargetPosition();
     }
 
     public double getMotorPower(){
@@ -110,6 +111,6 @@ public class Shooter {
     //Use convention "is<Condition>" to return TRUE/FALSE in response to a logical test
     //Example return TRUE if motor position is greater than a threshold defined in constants
     public boolean isMotorBusy(){
-        return motorName.isBusy();
+        return shooter1.isBusy();
     }
 }
