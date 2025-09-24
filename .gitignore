@@ -88,3 +88,5 @@ caches/*
 native/*
 wrapper/*
 daemon/*
+.tmp/*
+android/FakeDependency.jar
