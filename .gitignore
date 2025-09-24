@@ -82,3 +82,9 @@ lint/tmp/
 
 .DS_Store
 /.idea
+
+# build caches
+caches/*
+native/*
+wrapper/*
+daemon/*
