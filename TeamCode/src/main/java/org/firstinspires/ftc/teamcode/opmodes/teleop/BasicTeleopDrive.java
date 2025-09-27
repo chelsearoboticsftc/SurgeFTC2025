@@ -26,10 +26,10 @@ public class BasicTeleopDrive extends LinearOpMode {
                             new Vector2d(-gamepad1.left_stick_y,
                                     -gamepad1.left_stick_x),
                             -gamepad1.left_stick_x));
-            if(gamepad1.right_trigger > 0.1){r",
-                telemetry.addData("Right Trigge "Pressed");
-                        telemetry.update();
-                        test1.setMotorPower(0.1);
+
+            if(gamepad1.right_trigger > 0){
+               
+                        test1.setMotorPower(0.5);
                         sleep(1000);
                         test1.setMotorPower(0);
             }
