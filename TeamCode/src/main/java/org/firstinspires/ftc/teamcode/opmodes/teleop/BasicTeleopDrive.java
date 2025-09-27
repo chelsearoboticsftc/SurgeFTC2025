@@ -33,6 +33,10 @@ public class BasicTeleopDrive extends LinearOpMode {
                         sleep(1000);
                         test1.setMotorPower(0);
             }
+        telemetry.addData("Forward Input", -gamepad1.left_stick_y);
+        telemetry.addData("Strafe Input", -gamepad1.left_stick_x);
+        telemetry.addData("Turn Input", -gamepad1.right_stick_x);
+        telemetry.update();
         }
     }
 }
