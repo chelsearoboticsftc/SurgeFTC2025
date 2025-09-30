@@ -27,10 +27,13 @@ public class BasicTeleopDrive extends LinearOpMode {
                                     -gamepad1.left_stick_x),
                             -gamepad1.right_stick_x));
 
-            if else(gamepad1.right_trigger > 0){
+            if(gamepad1.right_trigger > 0){
 
             test1.setMotorPower(0.5);
         }
+            else if(gamepad1.right_trigger == 0){
+                test1.setMotorPower(0);
+            }
 
         telemetry.addData("Forward Input", -gamepad1.left_stick_y);
         telemetry.addData("Strafe Input", -gamepad1.left_stick_x);
