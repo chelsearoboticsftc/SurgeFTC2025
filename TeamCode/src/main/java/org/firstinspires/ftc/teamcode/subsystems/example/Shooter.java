@@ -1,8 +1,13 @@
 package org.firstinspires.ftc.teamcode.subsystems.example;
 
+import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.gamepad1;
+
+import com.acmerobotics.roadrunner.Pose2d;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+
+import org.firstinspires.ftc.teamcode.MecanumDrive;
 
 public class Shooter {
 
@@ -114,3 +119,4 @@ public class Shooter {
         return shooter1.isBusy();
     }
 }
+
