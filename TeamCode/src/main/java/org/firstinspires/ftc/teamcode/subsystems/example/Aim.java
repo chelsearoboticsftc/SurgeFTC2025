@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
-public class Shooter {
+public class Aim {
 
     //Declare HW objects here
 
@@ -15,7 +15,7 @@ public class Shooter {
     private int motorSetPosition = 0;
     private double motorPower = 0;
 
-    public Shooter(HardwareMap hardwareMap){
+    public Aim(HardwareMap hardwareMap){
         //Constructor for the SampleSubsystem class.  This code is called everytime you create
         //an object of this class type.  Rename to match your class name.
 
@@ -111,8 +111,5 @@ public class Shooter {
     //Example return TRUE if motor position is greater than a threshold defined in constants
     public boolean isMotorBusy(){
         return motorName.isBusy();
-    }
-    public void aim(){
-        
     }
 }

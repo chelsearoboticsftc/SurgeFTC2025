@@ -5,6 +5,8 @@ import com.acmerobotics.roadrunner.PoseVelocity2d;
 import com.acmerobotics.roadrunner.Vector2d;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+
+import org.firstinspires.ftc.teamcode.subsystems.example.Aim;
 import org.firstinspires.ftc.teamcode.subsystems.example.Shooter;
 import org.firstinspires.ftc.teamcode.MecanumDrive;
 
@@ -25,18 +27,19 @@ public class BasicTeleopDrive extends LinearOpMode {
                             new Vector2d(-gamepad1.left_stick_y,
                                          -gamepad1.left_stick_x),
                             -gamepad1.right_stick_x));
+
+            if(gamepad2.a){
+                test1.
+            }
+            else if(gamepad2.b){
+
+            }
+
             if(gamepad1.right_trigger > 0) {
                 test1.setMotorPower(0.5);
             }
             else if(gamepad1.right_trigger == 0) {
                 test1.setMotorPower(0);
-            }
-            if(gamepad2.a){
-                aim.setMotorPower(0.2);
-            }
-            else if(gamepad2.b){
-                aim.setMotorPower(-0.2);
-            }
             }
         }
     }
