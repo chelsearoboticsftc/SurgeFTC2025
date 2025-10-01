@@ -99,6 +99,10 @@ public class Shooter {
         shooter1.setPower(power);
     }
 
+    public void start_shoot(){
+            setMotorPower(0.5);
+    }
+
     //Use convention "get<Parameter>" to name methods which return something
     //Example return motorName position
     public int getMotorPosition(){
