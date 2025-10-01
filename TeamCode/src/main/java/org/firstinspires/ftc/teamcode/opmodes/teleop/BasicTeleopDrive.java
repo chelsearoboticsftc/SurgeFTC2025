@@ -15,6 +15,7 @@ public class BasicTeleopDrive extends LinearOpMode {
         MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0,0,0));
         Shooter test1 = new Shooter(hardwareMap);
 
+
         waitForStart();
 
         while(opModeIsActive()){
@@ -27,10 +28,15 @@ public class BasicTeleopDrive extends LinearOpMode {
             if(gamepad1.right_trigger > 0) {
                 test1.setMotorPower(0.5);
             }
-            else {
+            else if(gamepad1.right_trigger == 0) {
                 test1.setMotorPower(0);
             }
             if(gamepad2.a){
+                aim.setMotorPower(0.2);
+            }
+            else if(gamepad2.b){
+                aim.setMotorPower(-0.2);
+            }
             }
         }
     }
