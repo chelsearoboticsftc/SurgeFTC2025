@@ -58,8 +58,12 @@ public class SmartShooter {
 
     public void shoot(double distance) {
         double velocity = distanceToVelocity.interpolate(distance);
-        this.motor.setVelocity(velocity);
+        this.setMotorVelocity(velocity);
         // TODO - is ball already engaged, or does it need to be dropped,
         // maybe after a short delay to allow the motor to spin up?
+    }
+
+    public void setMotorVelocity(double angularRate) {
+        this.motor.setVelocity(angularRate);
     }
 }
