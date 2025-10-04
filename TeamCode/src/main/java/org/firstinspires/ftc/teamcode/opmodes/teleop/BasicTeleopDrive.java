@@ -44,13 +44,13 @@ public class BasicTeleopDrive extends LinearOpMode {
                 servo.setPosition(0);
             }
 
-            //double bob = 0;
-            //if (gamepad1.right_trigger > 0) {
-                //bob = 0.5;
-            //} else if (gamepad1.left_trigger > 0) {
-                //bob = 0;
-            //}
-            //test1.setMotorPower(bob);
+            double bob = 0;
+            if (gamepad1.right_trigger > 0) {
+                bob = 0.5;}
+                else if (gamepad1.left_trigger > 0) {
+                bob = 0;
+            }
+            test1.setMotorPower(bob);
         }
     }
 }
