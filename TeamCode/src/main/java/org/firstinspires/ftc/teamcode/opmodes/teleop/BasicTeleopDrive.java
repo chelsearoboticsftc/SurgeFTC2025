@@ -50,7 +50,7 @@ public class BasicTeleopDrive extends LinearOpMode {
             //} else if (gamepad1.left_trigger > 0) {
                 //bob = 0;
             //}
-            test1.setMotorPower(bob);
+            //test1.setMotorPower(bob);
         }
     }
 }
