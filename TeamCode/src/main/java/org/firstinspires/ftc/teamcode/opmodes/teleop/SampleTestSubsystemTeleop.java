@@ -15,8 +15,7 @@ public class SampleTestSubsystemTeleop extends LinearOpMode {
         //Call init() method to do any initialization actions defined by the subsystem class
         subsystem.init();
 
-        //DcMotorEx motor = hardwareMap.get(DcMotorEx.class, "motorName");
-
+        //DcMotorEx motor = hardwareMap.get(DcMotorEx.class, "motorName")
         waitForStart();
 
         while(opModeIsActive()){
