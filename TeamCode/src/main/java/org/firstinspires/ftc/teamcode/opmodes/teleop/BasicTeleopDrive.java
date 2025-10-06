@@ -55,9 +55,7 @@ Put double bob = 0 in init
                 bob = 0;
             }
             test1.setMotorPower(bob);
-        }
-    }
-}
+
 //goofy code: String smth = String.valueOf(98.25);
 //telemetry.addData("idk",String.valueOf(smth));
 //telemetry.update();
