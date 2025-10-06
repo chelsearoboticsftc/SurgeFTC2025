@@ -12,7 +12,7 @@ import org.firstinspires.ftc.teamcode.MecanumDrive;
 //Greyson is better than Ben at google baseball
 
 @TeleOp
-public class BasicTeleopDrive extends LinearOpMode {
+public class SurgeTeleopBlue extends LinearOpMode {
     Servo servo;
 
     @Override
