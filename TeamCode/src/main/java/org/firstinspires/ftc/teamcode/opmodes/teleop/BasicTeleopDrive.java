@@ -18,7 +18,7 @@ public class BasicTeleopDrive extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0,0,0));
         Shooter test1 = new Shooter(hardwareMap);
-        servo = hardwareMap.get(Servo.class, "servo3");
+        // servo = hardwareMap.get(Servo.class, "servo3");
 //EVIL SERVO >:O
 
         waitForStart();
@@ -32,7 +32,7 @@ public class BasicTeleopDrive extends LinearOpMode {
                             -gamepad1.right_stick_x));
 
 
-            if (gamepad2.a) {
+           /* if (gamepad2.a) {
                 test1.aim();
             } else if (gamepad2.b) {
                 test1.aim();
@@ -46,7 +46,7 @@ public class BasicTeleopDrive extends LinearOpMode {
 
             double bob = 0;
             if (gamepad1.right_trigger > 0) {
-                bob = 0.5;}
+                bob = 1;}
                 else if (gamepad1.left_trigger > 0) {
                 bob = 0;
             }

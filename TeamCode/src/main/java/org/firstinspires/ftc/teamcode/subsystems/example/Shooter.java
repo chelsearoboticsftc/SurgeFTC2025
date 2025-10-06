@@ -101,8 +101,8 @@ public class Shooter {
     public void setMotorPower(double power){
         //Note: Calling setPower stops position and Velocity control!!!!
         motorPower = power;
-        motorName.setPower(power);
-        motorName2.setPower(power);
+        motorName.setPower(-1 * power);
+        motorName2.setPower(-1 * power);
     }
 
     //Use convention "get<Parameter>" to name methods which return something
