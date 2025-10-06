@@ -49,13 +49,13 @@ public class BasicTeleopDrive extends LinearOpMode {
 // :P
 //mack attack i chose you
 // aaaahhh
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //<<<<<<< HEAD
 // ben is cool
 //=======
 // ben is cool 
 //>>>>>>> 416c2adb176de1fdfa96e08e89b257ea31541fa3
-=======
+//=======
 // ben is cool
 // ben is cool
->>>>>>> aa062cc3ae0298fef0ae99c0947a96570889dc23
+//>>>>>>> aa062cc3ae0298fef0ae99c0947a96570889dc23
