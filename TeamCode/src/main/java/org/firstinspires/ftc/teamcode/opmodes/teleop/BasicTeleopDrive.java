@@ -23,13 +23,12 @@ public class BasicTeleopDrive extends LinearOpMode {
 
         waitForStart();
 
-        while(opModeIsActive()) {
-
-            drive.setDrivePowers(
-                    new PoseVelocity2d(
-                            new Vector2d(-gamepad1.left_stick_y,
-                                    -gamepad1.left_stick_x),
-                            -gamepad1.right_stick_x));
+        while(opModeIsActive()){ drive.setDrivePowers(
+                
+                new PoseVelocity2d(
+                        new Vector2d(-gamepad1.left_stick_y,
+                                -gamepad1.left_stick_x),
+                        -gamepad1.right_stick_x));
 
 
            /* if (gamepad2.a) {
