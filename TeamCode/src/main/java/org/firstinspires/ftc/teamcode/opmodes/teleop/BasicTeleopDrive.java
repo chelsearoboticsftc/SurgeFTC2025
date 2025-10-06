@@ -36,7 +36,10 @@ public class BasicTeleopDrive extends LinearOpMode {
 }
 
 
-           /* if (gamepad2.a) {
+           /*
+           Put double bob = 0 in init
+           
+           if (gamepad2.a) {
                 test1.aim();
             } else if (gamepad2.b) {
                 test1.aim();
@@ -47,8 +50,6 @@ public class BasicTeleopDrive extends LinearOpMode {
             if(gamepad1.y){
                 servo.setPosition(0);
             }
-Put double bob = 0 in init
-            double bob = 0;
             if (gamepad1.right_trigger > 0) {
                 bob = 1;}
                 else if (gamepad1.left_trigger > 0) {
