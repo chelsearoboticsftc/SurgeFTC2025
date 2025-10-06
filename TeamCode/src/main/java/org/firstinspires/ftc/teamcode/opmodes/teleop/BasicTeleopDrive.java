@@ -6,6 +6,7 @@ import com.acmerobotics.roadrunner.Vector2d;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Servo;
+import org.firstinspires.ftc.teamcode.subsystems.example.Intake;
 import org.firstinspires.ftc.teamcode.subsystems.example.Shooter;
 import org.firstinspires.ftc.teamcode.MecanumDrive;
 //trst
@@ -19,6 +20,7 @@ public class BasicTeleopDrive extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0,0,0));
         Shooter test1 = new Shooter(hardwareMap);
+        Intake intakeMotor = new Intake(hardwareMap);
         // servo = hardwareMap.get(Servo.class, "servo3");
 //EVIL SERVO >:O
 
@@ -31,6 +33,9 @@ public class BasicTeleopDrive extends LinearOpMode {
                             new Vector2d(-gamepad1.left_stick_y,
                                     -gamepad1.left_stick_x),
                             -gamepad1.right_stick_x));
+            while(gamepad2.left_trigger > 0){
+                intakeMotor.setMotorPower(0.75);
+            }
         }
     }
 }
