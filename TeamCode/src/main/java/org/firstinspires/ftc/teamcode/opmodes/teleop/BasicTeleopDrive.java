@@ -7,12 +7,11 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooter;
-
 import org.firstinspires.ftc.teamcode.subsystems.example.Intake;
 import org.firstinspires.ftc.teamcode.subsystems.example.Shooter;
 import org.firstinspires.ftc.teamcode.MecanumDrive;
 import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooterConstants;
-//trust
+//trst
 //Greyson is better than Ben at google baseball
 
 @TeleOp
@@ -23,6 +22,7 @@ public class BasicTeleopDrive extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0,0,0));
         SmartShooter test1 = new SmartShooter(hardwareMap);
+        Shooter test1 = new Shooter(hardwareMap);
         Intake intakeMotor = new Intake(hardwareMap);
         // servo = hardwareMap.get(Servo.class, "servo3");
 //EVIL SERVO >:O
