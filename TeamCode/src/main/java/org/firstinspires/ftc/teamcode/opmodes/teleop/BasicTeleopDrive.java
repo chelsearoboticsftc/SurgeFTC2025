@@ -13,11 +13,10 @@ import org.firstinspires.ftc.teamcode.MecanumDrive;
 import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooterConstants;
 //trst
 //Greyson is better than Ben at google baseball
-
 @TeleOp
 public class BasicTeleopDrive extends LinearOpMode {
     Servo servo;
-
+//servo 3
     @Override
     public void runOpMode() throws InterruptedException {
         MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0,0,0));
@@ -36,8 +35,7 @@ public class BasicTeleopDrive extends LinearOpMode {
                             new Vector2d(-gamepad1.left_stick_y,
                                     -gamepad1.left_stick_x),
                             -gamepad1.right_stick_x));
-            while(gamepad2.left_trigger > 0){
-                intakeMotor.setMotorPower(0.75);
+            if(gamepad2.left_trigger > 0){
             }
         }
     }
