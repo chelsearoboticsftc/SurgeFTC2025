@@ -6,15 +6,13 @@ import com.acmerobotics.roadrunner.Vector2d;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Servo;
-<<<<<<< HEAD
 import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooter;
-=======
+
 import org.firstinspires.ftc.teamcode.subsystems.example.Intake;
 import org.firstinspires.ftc.teamcode.subsystems.example.Shooter;
->>>>>>> f6cd881a4ea9ee6b545d52ff365af67832f0185f
 import org.firstinspires.ftc.teamcode.MecanumDrive;
 import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooterConstants;
-//trst
+//trust
 //Greyson is better than Ben at google baseball
 
 @TeleOp
@@ -24,12 +22,8 @@ public class BasicTeleopDrive extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0,0,0));
-<<<<<<< HEAD
         SmartShooter test1 = new SmartShooter(hardwareMap);
-=======
-        Shooter test1 = new Shooter(hardwareMap);
         Intake intakeMotor = new Intake(hardwareMap);
->>>>>>> f6cd881a4ea9ee6b545d52ff365af67832f0185f
         // servo = hardwareMap.get(Servo.class, "servo3");
 //EVIL SERVO >:O
 
