@@ -39,8 +39,10 @@ public class BasicTeleopDrive extends LinearOpMode {
                 servo.setPosition(1);
             }
             if(gamepad1.y){
-                servo.setPosition(0);
+            servo.setPosition(0);
             }
+
+
         }
     }
 }
