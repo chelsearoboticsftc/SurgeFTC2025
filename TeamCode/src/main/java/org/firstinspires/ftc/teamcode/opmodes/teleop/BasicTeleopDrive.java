@@ -22,7 +22,7 @@ public class BasicTeleopDrive extends LinearOpMode {
         MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0,0,0));
         //SmartShooter test1 = new SmartShooter(hardwareMap);
         //Shooter test1 = new Shooter(hardwareMap);
-        Intake intakeMotor = new Intake(hardwareMap);
+        //Intake intakeMotor = new Intake(hardwareMap);
         servo = hardwareMap.get(Servo.class, "servo3");
 //EVIL SERVO >:O
 
