@@ -14,7 +14,7 @@ public class SmartShooter {
     //Declare any other global variables for this class here
     private final LookupTable distanceToVelocity = new LookupTable(SmartShooterConstants.LOOKUP_TABLE);
 
-    public SmartShooter(HardwareMap hardwareMap){
+    public SmartShooter(HardwareMap hardwareMap) {
         this.motor = hardwareMap.get(DcMotorEx.class, SmartShooterConstants.MOTOR_NAME);
 
         //This defines the behavior at zero power (brake or coast)
@@ -41,14 +41,15 @@ public class SmartShooter {
         //motorName.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
     }
+
     /* Standard functions.  All Chelsea Robotics subsystems shall have init() and update() these  *
      * methods defined. Leave empty if not needed!                                                */
-    public void init(){
+    public void init() {
         /* Call this method at the start of your opmode logic once to execute any logic you       *
          * want to be called on initialization. If none, leave empty!                             */
     }
 
-    public void update(){
+    public void update() {
         //Call this method each time your opmode logic loops (i.e. inside while(opModeIsActive()){}
         //to execute any logic you want to be called periodically. If none, leave empty!
 
@@ -65,5 +66,10 @@ public class SmartShooter {
 
     public void setMotorVelocity(double angularRate) {
         this.motor.setVelocity(angularRate);
+    }
+
+    public void setMotorPower(double power) {
+        //Note: Calling setPower stops position and Velocity control!!!!
+        motor.setPower(power);
     }
 }

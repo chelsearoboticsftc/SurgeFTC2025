@@ -98,7 +98,7 @@ public class Shooter {
     }
 
     //Use convention "set<Parameter>" to name methods which set something. Example set<motorName>Power
-    public void setMotorPower(double power){
+    public void setMotorPower(double power) {
         //Note: Calling setPower stops position and Velocity control!!!!
         motorPower = power;
         motorName.setPower(-1 * power);

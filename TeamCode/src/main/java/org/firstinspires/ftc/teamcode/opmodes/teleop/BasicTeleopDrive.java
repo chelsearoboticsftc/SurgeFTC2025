@@ -20,7 +20,7 @@ public class BasicTeleopDrive extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0,0,0));
-        //SmartShooter test1 = new SmartShooter(hardwareMap);
+        SmartShooter test1 = new SmartShooter(hardwareMap);
         //Shooter test1 = new Shooter(hardwareMap);
         //Intake intakeMotor = new Intake(hardwareMap);
         servo = hardwareMap.get(Servo.class, "servo3");
@@ -39,9 +39,13 @@ public class BasicTeleopDrive extends LinearOpMode {
                 servo.setPosition(1);
             }
             if(gamepad1.y){
-            servo.setPosition(0);
+                servo.setPosition(0);
             }
-
+            if(gamepad1.right_trigger > 0) {
+                test1.setMotorPower(1);
+            } else if(gamepad1.right_trigger < 0) {
+                test1.setMotorPower(0);
+            }
 
         }
     }
