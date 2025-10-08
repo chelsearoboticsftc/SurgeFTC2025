@@ -23,7 +23,7 @@ public class BasicTeleopDrive extends LinearOpMode {
         SmartShooter test1 = new SmartShooter(hardwareMap);
         Shooter test1 = new Shooter(hardwareMap);
         Intake intakeMotor = new Intake(hardwareMap);
-        // servo = hardwareMap.get(Servo.class, "servo3");
+        servo = hardwareMap.get(Servo.class, "servo3");
 //EVIL SERVO >:O
 
         waitForStart();
