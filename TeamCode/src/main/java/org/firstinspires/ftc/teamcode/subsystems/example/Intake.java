@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.subsystems.example;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.CRServoImpl;
 
 public class Intake {
 
@@ -26,7 +27,9 @@ public class Intake {
         //configuration exactly.  This is the connection with the Control Hub Config
 
         //Example code defining a DcMotor object to a motor in the config called "motorName"
-        this.motorName = hardwareMap.get(DcMotorEx.class,"motorName");
+        this.motorName = hardwareMap.get(DcMotorEx.class,"intake");
+        this = hardwareMap.get(CRServoImpl.class,"servo5");
+        this = hardwareMap.get(CRServoImpl.class,"servo4");
 
         //This defines the behavior at zero power (brake or coast)
         motorName.setZeroPowerBehavior(SampleSubsystemConstants.MOTOR_NAME_ZERO_POWER_BEHAVIOR);
@@ -112,4 +115,6 @@ public class Intake {
     public boolean isMotorBusy(){
         return motorName.isBusy();
     }
+
+
 }
