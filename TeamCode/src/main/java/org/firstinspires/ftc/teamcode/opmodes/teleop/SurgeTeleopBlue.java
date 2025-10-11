@@ -35,19 +35,19 @@ public class SurgeTeleopBlue extends LinearOpMode {
                                     -gamepad1.left_stick_x),
                             -gamepad1.right_stick_x));
             if(gamepad2.x){
-                if(Aim == 0 || Aim == -1){
+                if(Aim == 0){
                     Aim = 1;
                 }
-                if(Aim == 1){
+                if(Aim == 1 || Aim == -1){
                     Aim = 0;
                 }
                 servo.setPower(Aim);
             }
             if(gamepad2.b){
-                if(Aim == 0 || Aim == 1){
+                if(Aim == 0){
                     Aim = -1;
                 }
-                if(Aim == -1){
+                if(Aim == -1 || Aim == 1){
                     Aim = 0;
                 }
                 servo.setPower(Aim);

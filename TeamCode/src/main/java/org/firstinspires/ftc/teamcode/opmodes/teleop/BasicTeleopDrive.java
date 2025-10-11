@@ -69,8 +69,8 @@ public class BasicTeleopDrive extends LinearOpMode {
             }
             test1.setMotorPower(bob);
 
-/*goofy code: String smth = String.valueOf(98.25);
-//telemetry.addData("idk",String.valueOf(smth));
-//telemetry.update();
+goofy code: String smth = String.valueOf(98.25);
+telemetry.addData("idk",String.valueOf(smth));
+telemetry.update();
 
             */
