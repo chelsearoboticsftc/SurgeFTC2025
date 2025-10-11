@@ -1,6 +1,8 @@
 package org.firstinspires.ftc.teamcode.subsystems.example;
+// This sample vision subsystem only includes the reading of the main apriltag for goals
+// it does not include obelisk detection or sorting at this time
 
-
+import android.util.Size;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.vision.VisionPortal;
 import org.firstinspires.ftc.vision.apriltag.AprilTagDetection;
@@ -17,10 +19,9 @@ import java.util.List;
 public class SampleVision {
     private static final boolean USE_WEBCAM = true;  // true for webcam, false for phone camera
     private AprilTagProcessor aprilTag;
-
-    private Position distance;
+    private double distance; //
     private VisionPortal visionPortal;
-    private int team;
+    private int team;   // 24 for red, 20 for blue
     private Position cameraPosition = new Position(DistanceUnit.INCH,
             0, 0, 0, 0);
     private YawPitchRollAngles cameraOrientation = new YawPitchRollAngles(AngleUnit.DEGREES,
@@ -50,7 +51,9 @@ public class SampleVision {
                 // == CAMERA CALIBRATION ==
                 // If you do not manually specify calibration parameters, the SDK will attempt
                 // to load a predefined calibration for your camera.
-                //.setLensIntrinsics(578.272, 578.272, 402.145, 221.506)
+                // Calibration below is for Logitech C920 at 1920x1280 resolution
+                // as captured by Rob Hoffman
+                .setLensIntrinsics(1371.47, 1371.47, 1162.12, 417.84)
                 // ... these parameters are fx, fy, cx, cy.
 
                 .build();
@@ -69,9 +72,8 @@ public class SampleVision {
         builder.setCamera(hardwareMap.get(WebcamName.class, "Webcam 1"));
         builder.setCamera(BuiltinCameraDirection.BACK);
 
-        // Choose a camera resolution. Not all cameras support all resolutions.
-        //builder.setCameraResolution(new Size(640, 480));
-
+        // Choose a camera resolution. Not al cameras support all resolutions.
+        builder.setCameraResolution(new Size(1920,1080));
         // Enable the RC preview (LiveView).  Set "false" to omit camera monitoring.
         //builder.enableLiveView(true);
 
@@ -104,7 +106,7 @@ public class SampleVision {
 
     }
 
-    public Position getDistanceToGoal(int team) {
+    public double getDistanceToGoal(int team) {
         List<AprilTagDetection> currentDetections = aprilTag.getDetections();
 
         if (currentDetections.size() > 0) {
@@ -115,7 +117,7 @@ public class SampleVision {
                     if (!detection.metadata.name.contains("Obelisk") && detection.id == team) {
                         //Don't include obelisk detections
                         //20 for blue, 24 for red!
-                        distance = detection.robotPose.getPosition();
+                        distance = detection.ftcPose.range;
                     }
                 }
             }
