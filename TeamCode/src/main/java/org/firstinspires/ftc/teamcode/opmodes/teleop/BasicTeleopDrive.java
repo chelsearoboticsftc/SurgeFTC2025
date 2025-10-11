@@ -10,7 +10,6 @@ import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooter;
 import org.firstinspires.ftc.teamcode.subsystems.example.Intake;
 import com.qualcomm.robotcore.hardware.CRServoImpl;
 import org.firstinspires.ftc.teamcode.subsystems.example.Shooter;
-import com.qualcomm.robotcore.hardware.
 
 import org.firstinspires.ftc.teamcode.MecanumDrive;
 import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooterConstants;
@@ -25,7 +24,7 @@ public class BasicTeleopDrive extends LinearOpMode {
         MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0,0,0));
 
         SmartShooter test1 = new SmartShooter(hardwareMap);
-        Intake intakeMotor = new Intake(hardwareMap);
+        Intake intake = new Intake(hardwareMap);
 
         // servo = hardwareMap.get(Servo.class, "servo3");
 //EVIL SERVO >:O
@@ -40,8 +39,10 @@ public class BasicTeleopDrive extends LinearOpMode {
                                     -gamepad1.left_stick_x),
                             -gamepad1.right_stick_x));
             while(gamepad2.left_trigger > 0){
-                intakeMotor.setMotorPower(0.75);
-
+                intake.setMotorPower(0.75);
+            if(gamepad1.left_trigger > 0){
+                intake.startIndexBelt();
+            }
             }
 
         }
