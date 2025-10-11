@@ -16,13 +16,13 @@ import org.firstinspires.ftc.teamcode.MecanumDrive;
 
 @TeleOp
 public class SurgeTeleopBlue extends LinearOpMode {
-    CRServoImpl servo;
+    CRServoImpl servo3;
     int Aim = 0;
     @Override
     public void runOpMode() throws InterruptedException {
         MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0,0,0));
         Shooter test1 = new Shooter(hardwareMap);
-        servo = hardwareMap.get(CRServoImpl.class, "servo3");
+        servo3 = hardwareMap.get(CRServoImpl.class, "servo3");
 //EVIL SERVO >:O
 
         waitForStart();
@@ -41,7 +41,7 @@ public class SurgeTeleopBlue extends LinearOpMode {
                 if(Aim == 1 || Aim == -1){
                     Aim = 0;
                 }
-                servo.setPower(Aim);
+                servo3.setPower(Aim);
             }
             if(gamepad2.b){
                 if(Aim == 0){
@@ -50,7 +50,7 @@ public class SurgeTeleopBlue extends LinearOpMode {
                 if(Aim == -1 || Aim == 1){
                     Aim = 0;
                 }
-                servo.setPower(Aim);
+                servo3.setPower(Aim);
             }
         }
     }
