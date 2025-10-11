@@ -24,12 +24,9 @@ public class BasicTeleopDrive extends LinearOpMode {
         MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0,0,0));
 
         SmartShooter test1 = new SmartShooter(hardwareMap);
-<<<<<<< HEAD
         Intake intakeMotor = new Intake(hardwareMap);
 
-=======
         Intake intake = new Intake(hardwareMap);
->>>>>>> 907d84c59351433ba8eea3ad1a60b1519dc65616
 
         // servo = hardwareMap.get(Servo.class, "servo3");
 //EVIL SERVO >:O
@@ -44,15 +41,12 @@ public class BasicTeleopDrive extends LinearOpMode {
                                     -gamepad1.left_stick_x),
                             -gamepad1.right_stick_x));
             while(gamepad2.left_trigger > 0){
-<<<<<<< HEAD
                 intakeMotor.setMotorPower(0.75);
 
-=======
                 intake.setMotorPower(0.75);
             if(gamepad1.left_trigger > 0){
                 intake.startIndexBelt();
             }
->>>>>>> 907d84c59351433ba8eea3ad1a60b1519dc65616
             }
 
         }
