@@ -11,12 +11,8 @@ import org.firstinspires.ftc.teamcode.subsystems.example.Intake;
 import org.firstinspires.ftc.teamcode.subsystems.example.Shooter;
 
 import org.firstinspires.ftc.teamcode.MecanumDrive;
-<<<<<<< HEAD
-//Greyson is the GOAT
-=======
 import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooterConstants;
 //trst
->>>>>>> 8e018303f7b5b68c2a63bc02b034128d177b3a0b
 //Greyson is better than Ben at google baseball
 
 @TeleOp
