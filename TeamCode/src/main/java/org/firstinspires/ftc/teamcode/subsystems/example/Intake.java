@@ -28,8 +28,7 @@ public class Intake {
 
         //Example code defining a DcMotor object to a motor in the config called "motorName"
         this.motorName = hardwareMap.get(DcMotorEx.class,"intake");
-        this = hardwareMap.get(CRServoImpl.class,"servo5");
-        this = hardwareMap.get(CRServoImpl.class,"servo4");
+        this.motorName = hardwareMap.get(DcMotorEx.class, "indexBelt");
 
         //This defines the behavior at zero power (brake or coast)
         motorName.setZeroPowerBehavior(SampleSubsystemConstants.MOTOR_NAME_ZERO_POWER_BEHAVIOR);

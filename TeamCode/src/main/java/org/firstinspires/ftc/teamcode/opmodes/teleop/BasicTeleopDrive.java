@@ -8,7 +8,9 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooter;
 import org.firstinspires.ftc.teamcode.subsystems.example.Intake;
+import com.qualcomm.robotcore.hardware.CRServoImpl;
 import org.firstinspires.ftc.teamcode.subsystems.example.Shooter;
+import com.qualcomm.robotcore.hardware.
 
 import org.firstinspires.ftc.teamcode.MecanumDrive;
 <<<<<<< HEAD
@@ -22,7 +24,6 @@ import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooterConstants;
 @TeleOp
 public class BasicTeleopDrive extends LinearOpMode {
     Servo servo;
-
     @Override
     public void runOpMode() throws InterruptedException {
         MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0,0,0));
@@ -44,10 +45,12 @@ public class BasicTeleopDrive extends LinearOpMode {
                             -gamepad1.right_stick_x));
             while(gamepad2.left_trigger > 0){
                 intakeMotor.setMotorPower(0.75);
+
             }
+
         }
     }
-    while()
+
 
 }
 
