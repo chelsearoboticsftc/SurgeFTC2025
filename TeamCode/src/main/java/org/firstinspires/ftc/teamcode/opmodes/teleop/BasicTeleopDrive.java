@@ -26,7 +26,7 @@ public class BasicTeleopDrive extends LinearOpMode {
 
         SmartShooter test1 = new SmartShooter(hardwareMap);
         Intake intakeMotor = new Intake(hardwareMap);
-        
+
 
         // servo = hardwareMap.get(Servo.class, "servo3");
 //EVIL SERVO >:O
@@ -42,7 +42,7 @@ public class BasicTeleopDrive extends LinearOpMode {
                             -gamepad1.right_stick_x));
             while(gamepad2.left_trigger > 0){
                 intakeMotor.setMotorPower(0.75);
-                indexB
+
             }
 
         }
