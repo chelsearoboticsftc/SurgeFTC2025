@@ -12,7 +12,6 @@ import org.firstinspires.ftc.teamcode.subsystems.example.Shooter;
 
 import org.firstinspires.ftc.teamcode.MecanumDrive;
 <<<<<<< HEAD
-//Greyson is the GOAT
 =======
 import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooterConstants;
 //trst
