@@ -43,9 +43,9 @@ public class BasicTeleopDrive extends LinearOpMode {
             while(gamepad2.left_trigger > 0){
                 intakeMotor.setMotorPower(0.75);
 
-                intake.setMotorPower(0.75);
-            if(gamepad1.left_trigger > 0){
-                intake.startIndexBelt();
+
+           // while(gamepad1.left_trigger > 0) {
+               // intake.IndexBelt(0.75);
             }
             }
 
@@ -53,7 +53,7 @@ public class BasicTeleopDrive extends LinearOpMode {
     }
 
 
-}
+
 
 
            /*
