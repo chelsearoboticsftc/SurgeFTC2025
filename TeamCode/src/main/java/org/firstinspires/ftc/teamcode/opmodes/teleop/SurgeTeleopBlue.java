@@ -6,6 +6,8 @@ import com.acmerobotics.roadrunner.Vector2d;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServoImpl;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
+import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooter;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.configuration.typecontainers.ServoConfigurationType;
 
@@ -17,12 +19,14 @@ import org.firstinspires.ftc.teamcode.MecanumDrive;
 @TeleOp
 public class SurgeTeleopBlue extends LinearOpMode {
     CRServoImpl servo;
+    DcMotorEx shooter1;
     int Aim = 0;
     @Override
     public void runOpMode() throws InterruptedException {
         MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0,0,0));
         Shooter test1 = new Shooter(hardwareMap);
         servo = hardwareMap.get(CRServoImpl.class, "servo3");
+        shooter1 = hardwareMap.get(DcMotorEx.class, "shooter1");
 //EVIL SERVO >:O
 
         waitForStart();
@@ -51,7 +55,13 @@ public class SurgeTeleopBlue extends LinearOpMode {
                     Aim = 0;
                 }
                 servo.setPower(Aim);
+
+                while(gamepad1.right_trigger > 0){
+                   shooter1.setPower(0.5);
+                }
+
             }
+
         }
     }
 }
