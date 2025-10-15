@@ -12,11 +12,6 @@ import com.qualcomm.robotcore.hardware.CRServoImpl;
 import org.firstinspires.ftc.teamcode.subsystems.example.Shooter;
 
 import org.firstinspires.ftc.teamcode.MecanumDrive;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> a18da7778bf06dd029966194a9ca758b2c04dfd4
 import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooterConstants;
 //trst
 //Greyson is better than Ben at google baseball
