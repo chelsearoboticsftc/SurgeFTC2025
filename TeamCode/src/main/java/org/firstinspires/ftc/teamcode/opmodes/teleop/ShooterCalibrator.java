@@ -8,7 +8,7 @@ import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooter;
 public class ShooterCalibrator extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
-        SmartShooter shooter = new SmartShooter(hardwareMap);
+        SmartShooter shooter1 = new SmartShooter(hardwareMap);
 
         waitForStart();
 
@@ -24,7 +24,7 @@ public class ShooterCalibrator extends LinearOpMode {
             if (gamepad2.bWasPressed()) {
                 velocity = 0;
             }
-            shooter.setMotorVelocity(velocity);
+            shooter1.setMotorVelocity(velocity);
             this.telemetry.addData("Velocity", velocity);
             this.telemetry.update();
         }
