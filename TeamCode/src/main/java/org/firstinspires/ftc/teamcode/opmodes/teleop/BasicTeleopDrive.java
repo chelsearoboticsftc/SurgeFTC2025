@@ -28,7 +28,7 @@ public class BasicTeleopDrive extends LinearOpMode {
 
         Intake intake = new Intake(hardwareMap);
 
-        // servo = hardwareMap.get(Servo.class, "servo3");
+
 //EVIL SERVO >:O
 
         waitForStart();
