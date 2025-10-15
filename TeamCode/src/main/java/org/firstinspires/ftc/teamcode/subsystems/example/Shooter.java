@@ -1,12 +1,14 @@
 package org.firstinspires.ftc.teamcode.subsystems.example;
 
+import com.qualcomm.robotcore.hardware.CRServoImpl;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-
+import com.qualcomm.robotcore.hardware.Servo;
 public class Shooter {
 
     //Declare HW objects here
+    CRServoImpl servo;
 
     //Example declare a DcMotorEx object as part of this class called 'motorName'
     DcMotorEx motorName;
@@ -27,6 +29,7 @@ public class Shooter {
 
         //Example code defining a DcMotor object to a motor in the config called "motorName"
         this.motorName = hardwareMap.get(DcMotorEx.class,"shooter1");
+        this.servo = hardwareMap.get(CRServoImpl.class, "servo3");
         //this.motorName2 = hardwareMap.get(DcMotorEx.class,"shooter2");
 
         //This defines the behavior at zero power (brake or coast)

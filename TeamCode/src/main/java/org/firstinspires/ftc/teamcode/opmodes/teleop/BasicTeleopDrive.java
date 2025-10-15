@@ -8,20 +8,22 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooter;
 import org.firstinspires.ftc.teamcode.subsystems.example.Intake;
+import com.qualcomm.robotcore.hardware.CRServoImpl;
 import org.firstinspires.ftc.teamcode.subsystems.example.Shooter;
 
 import org.firstinspires.ftc.teamcode.MecanumDrive;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> a18da7778bf06dd029966194a9ca758b2c04dfd4
 import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooterConstants;
 //trst
->>>>>>> 8e018303f7b5b68c2a63bc02b034128d177b3a0b
 //Greyson is better than Ben at google baseball
 
 @TeleOp
 public class BasicTeleopDrive extends LinearOpMode {
     Servo servo;
-
     @Override
     public void runOpMode() throws InterruptedException {
         MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0,0,0));
@@ -29,7 +31,9 @@ public class BasicTeleopDrive extends LinearOpMode {
         SmartShooter test1 = new SmartShooter(hardwareMap);
         Intake intakeMotor = new Intake(hardwareMap);
 
-        // servo = hardwareMap.get(Servo.class, "servo3");
+        Intake intake = new Intake(hardwareMap);
+
+
 //EVIL SERVO >:O
 
         waitForStart();
@@ -43,10 +47,18 @@ public class BasicTeleopDrive extends LinearOpMode {
                             -gamepad1.right_stick_x));
             while(gamepad2.left_trigger > 0){
                 intakeMotor.setMotorPower(0.75);
+
+
+           // while(gamepad1.left_trigger > 0) {
+               // intake.IndexBelt(0.75);
             }
+            }
+
         }
     }
-}
+
+
+
 
 
            /*
@@ -70,8 +82,8 @@ public class BasicTeleopDrive extends LinearOpMode {
             }
             test1.setMotorPower(bob);
 
-/*goofy code: String smth = String.valueOf(98.25);
-//telemetry.addData("idk",String.valueOf(smth));
-//telemetry.update();
+goofy code: String smth = String.valueOf(98.25);
+telemetry.addData("idk",String.valueOf(smth));
+telemetry.update();
 
             */
