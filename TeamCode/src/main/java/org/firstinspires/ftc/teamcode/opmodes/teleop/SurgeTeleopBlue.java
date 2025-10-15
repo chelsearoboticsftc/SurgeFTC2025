@@ -56,8 +56,11 @@ public class SurgeTeleopBlue extends LinearOpMode {
                 }
                 servo.setPower(Aim);
 
-                while(gamepad1.right_trigger > 0){
+                if(gamepad1.right_trigger > 0){
                    shooter1.setPower(0.5);
+                }
+                if(gamepad1.right_trigger < 0){
+                    shooter1.setPower(0);
                 }
 
             }
