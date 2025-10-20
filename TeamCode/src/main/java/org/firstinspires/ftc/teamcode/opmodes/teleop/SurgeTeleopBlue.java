@@ -8,11 +8,14 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServoImpl;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooter;
+
+import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.configuration.typecontainers.ServoConfigurationType;
 
 import org.firstinspires.ftc.teamcode.subsystems.example.Shooter;
 import org.firstinspires.ftc.teamcode.MecanumDrive;
+import org.firstinspires.ftc.teamcode.subsystems.example.Intake;
 //trst
 //Greyson is better than Ben at google baseball
 
@@ -20,13 +23,19 @@ import org.firstinspires.ftc.teamcode.MecanumDrive;
 public class SurgeTeleopBlue extends LinearOpMode {
     CRServoImpl servo;
     DcMotorEx shooter1;
+    DcMotorEx shooter2;
+    DcMotorEx intake;
     int Aim = 0;
     @Override
     public void runOpMode() throws InterruptedException {
         MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0,0,0));
         Shooter test1 = new Shooter(hardwareMap);
+        Intake test2 = new Intake(hardwareMap);
+
         servo = hardwareMap.get(CRServoImpl.class, "servo3");
         shooter1 = hardwareMap.get(DcMotorEx.class, "shooter1");
+        shooter2 = hardwareMap.get(DcMotorEx.class, "shooter2");
+        intake = hardwareMap.get(DcMotorEx.class, "intake");
 //EVIL SERVO >:O
 
         waitForStart();
@@ -57,10 +66,16 @@ public class SurgeTeleopBlue extends LinearOpMode {
                 servo.setPower(Aim);
 
                 if(gamepad1.right_trigger > 0){
-                   shooter1.setPower(0.5);
+                   shooter1.setPower(1.0);
                 }
                 if(gamepad1.right_trigger < 0){
                     shooter1.setPower(0);
+                }
+                if(gamepad1.left_trigger > 0){
+                    intake.setPower(1.0);
+                }
+                if(gamepad1.left_trigger < 0){
+                    intake.setPower(0);
                 }
 
             }
