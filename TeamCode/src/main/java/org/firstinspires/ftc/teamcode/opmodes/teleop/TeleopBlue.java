@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 @TeleOp
 public class TeleopBlue extends LinearOpMode {
     @Override
-    public void runOpmode() throws InterruptedException {
+    public void runOpMode() throws InterruptedException {
         TeleopCommon teleop = new TeleopCommon();
         teleop.setTagID(20);
         teleop.runOpMode();
