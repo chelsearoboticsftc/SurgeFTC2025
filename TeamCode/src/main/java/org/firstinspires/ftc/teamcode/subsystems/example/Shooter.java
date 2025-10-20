@@ -62,7 +62,7 @@ public class Shooter {
                 SampleSubsystemConstants.MOTOR_NAME_POSITION_P),
         //Proportional Gain
         motorName2.setPositionPIDFCoefficients(
-                SampleSubsystemConstants.MOTOR_NAME_POSITION_P),
+                SampleSubsystemConstants.MOTOR_NAME_POSITION_P);
                 //Proportional Gain
 
         //motorName.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -70,12 +70,12 @@ public class Shooter {
 
     /* Standard functions.  All Chelsea Robotics subsystems shall have init() and update() these  *
      * methods defined. Leave empty if not needed!                                                */
-    public void init(){
-        /* Call this method at the start of your opmode logic once to execute any logic you       *
-         * want to be called on initialization. If none, leave empty!                             */
-    }
+        //public void init(){
+            /* Call this method at the start of your opmode logic once to execute any logic you       *
+             * want to be called on initialization. If none, leave empty!                             */
+        }
 
-    public void update(){
+        public void update(){
         //Call this method each time your opmode logic loops (i.e. inside while(opModeIsActive()){}
         //to execute any logic you want to be called periodically. If none, leave empty!
 
