@@ -62,12 +62,12 @@ public class Shooter {
                 SampleSubsystemConstants.MOTOR_NAME_POSITION_P),
         //Proportional Gain
         motorName2.setPositionPIDFCoefficients(
-                SampleSubsystemConstants.MOTOR_NAME_POSITION_P);
+                SampleSubsystemConstants.MOTOR_NAME_POSITION_P),
                 //Proportional Gain
 
         //motorName.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-    }
+
     /* Standard functions.  All Chelsea Robotics subsystems shall have init() and update() these  *
      * methods defined. Leave empty if not needed!                                                */
     public void init(){
