@@ -7,25 +7,24 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServoImpl;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
-import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooter;
-
-import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.hardware.configuration.typecontainers.ServoConfigurationType;
 
 import org.firstinspires.ftc.teamcode.subsystems.example.Shooter;
 import org.firstinspires.ftc.teamcode.MecanumDrive;
 import org.firstinspires.ftc.teamcode.subsystems.example.Intake;
+
 //trst
 //Greyson is better than Ben at google baseball
 
 @TeleOp
-public class SurgeTeleopBlue extends LinearOpMode {
+public class TeleopCommon extends LinearOpMode {
     CRServoImpl servo;
     DcMotorEx shooter1;
     DcMotorEx shooter2;
     DcMotorEx intake;
+    int tagID = 20;
     int Aim = 0;
+
+    public void setTagID(int tagID) { this.tagID = tagID; }
     @Override
     public void runOpMode() throws InterruptedException {
         MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0,0,0));
