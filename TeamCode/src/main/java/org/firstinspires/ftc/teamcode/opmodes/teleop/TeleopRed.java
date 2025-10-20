@@ -9,7 +9,7 @@ public class TeleopRed extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         TeleopCommon teleop = new TeleopCommon();
-        teleop.setTagID(20);
+        teleop.setTagID(24);
         teleop.runOpMode();
     }
 }
