@@ -50,16 +50,16 @@ public class Shooter {
                 SampleSubsystemConstants.MOTOR_NAME_VELOCITY_D, //Derivative Gain
                 SampleSubsystemConstants.MOTOR_NAME_VELOCITY_F);//Feed Forward Gain
         motorName2.setVelocityPIDFCoefficients(
-                /*SampleSubsystemConstants.MOTOR_NAME_VELOCITY_P, //Proportional Gain
+                SampleSubsystemConstants.MOTOR_NAME_VELOCITY_P, //Proportional Gain
                 SampleSubsystemConstants.MOTOR_NAME_VELOCITY_I, //Integral Gain
                 SampleSubsystemConstants.MOTOR_NAME_VELOCITY_D, //Derivative Gain
-                SampleSubsystemConstants.MOTOR_NAME_VELOCITY_F);//Feed Forward Gain    */
+                SampleSubsystemConstants.MOTOR_NAME_VELOCITY_F);//Feed Forward Gain
 
         /* This defines the motor position PID P gain. Position control only needs P gain since   *
          * once the system reaches the target position since once at position you're only         *
          * disturbances in the system                                                             */
         motorName.setPositionPIDFCoefficients(
-                SampleSubsystemConstants.MOTOR_NAME_POSITION_P),
+                SampleSubsystemConstants.MOTOR_NAME_POSITION_P);
         //Proportional Gain
         motorName2.setPositionPIDFCoefficients(
                 SampleSubsystemConstants.MOTOR_NAME_POSITION_P);
