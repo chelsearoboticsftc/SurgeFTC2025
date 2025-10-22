@@ -9,6 +9,7 @@ public class ShooterCalibrator extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         SmartShooter shooter1 = new SmartShooter(hardwareMap);
+        SmartShooter shooter2 = new SmartShooter(hardwareMap);
 
         waitForStart();
 
@@ -25,6 +26,7 @@ public class ShooterCalibrator extends LinearOpMode {
                 velocity = 0;
             }
             shooter1.setMotorVelocity(velocity);
+            shooter2.setMotorVelocity(velocity);
             this.telemetry.addData("Velocity", velocity);
             this.telemetry.update();
         }
