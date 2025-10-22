@@ -17,7 +17,7 @@ public class SmartShooter {
 
     public SmartShooter(HardwareMap hardwareMap) {
         this.motor1 = hardwareMap.get(DcMotorEx.class, SmartShooterConstants.MOTOR_NAME);
-        this.motor2 = hardwareMap.get(DcMotorEx.class, SmartShooterConstants.MOTOR_NAME);
+        this.motor2 = hardwareMap.get(DcMotorEx.class, SmartShooterConstants.MOTOR_NAME2);
 
         //This defines the behavior at zero power (brake or coast)
         motor1.setZeroPowerBehavior(SmartShooterConstants.ZERO_POWER_BEHAVIOR);
