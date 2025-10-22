@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServoImpl;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 
-import org.firstinspires.ftc.teamcode.subsystems.example.Shooter;
+import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooter;
 import org.firstinspires.ftc.teamcode.MecanumDrive;
 import org.firstinspires.ftc.teamcode.subsystems.example.Intake;
 
@@ -28,14 +28,8 @@ public class TeleopCommon extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0,0,0));
-        Shooter test1 = new Shooter(hardwareMap);
-        Intake test2 = new Intake(hardwareMap);
-
-        servo = hardwareMap.get(CRServoImpl.class, "servo3");
-        shooter1 = hardwareMap.get(DcMotorEx.class, "shooter1");
-        shooter2 = hardwareMap.get(DcMotorEx.class, "shooter2");
-        intake = hardwareMap.get(DcMotorEx.class, "intake");
-//EVIL SERVO >:O
+        SmartShooter shooter = new SmartShooter(hardwareMap);
+        Intake intake = new Intake(hardwareMap);
 
         waitForStart();
 
@@ -65,18 +59,16 @@ public class TeleopCommon extends LinearOpMode {
                 servo.setPower(Aim);
 
                 if(gamepad1.right_trigger > 0){
-                   shooter1.setPower(1.0);
-                   shooter2.setPower(1.0);
+                   shooter.setMotorPower(0.7);
                 }
                 if(gamepad1.right_trigger < 0){
-                    shooter1.setPower(0);
-                    shooter2.setPower(0);
+                    shooter.setMotorPower(0);
                 }
                 if(gamepad1.left_trigger > 0){
-                    intake.setPower(1.0);
+                    intake.setMotorPower(0.7);
                 }
                 if(gamepad1.left_trigger < 0){
-                    intake.setPower(0);
+                    intake.setMotorPower(0);
                 }
 
             }
