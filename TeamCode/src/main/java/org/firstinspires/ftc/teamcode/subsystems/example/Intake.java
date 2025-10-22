@@ -75,7 +75,7 @@ public class Intake {
         motorSetPosition = position;
 
         //Call setTargetPositionTolerance to tell REV controller how close to the target position
-        //can be considered "at" the target position (e.g. target postion +/- tolerance)
+        //can be considered "at" the target position (e.g. target position +/- tolerance)
         motorName.setTargetPositionTolerance(SampleSubsystemConstants.MOTOR_NAME_POSITION_TOLERANCE);
 
         //Call setVelocity to tell the REV controller how fast you want to get to the target position

@@ -30,15 +30,15 @@ public class Shooter {
         //Example code defining a DcMotor object to a motor in the config called "motorName"
         this.motorName = hardwareMap.get(DcMotorEx.class,"shooter1");
         this.servo = hardwareMap.get(CRServoImpl.class, "servo3");
-        //this.motorName2 = hardwareMap.get(DcMotorEx.class,"shooter2");
+        this.motorName2 = hardwareMap.get(DcMotorEx.class,"shooter2");
 
         //This defines the behavior at zero power (brake or coast)
         motorName.setZeroPowerBehavior(SampleSubsystemConstants.MOTOR_NAME_ZERO_POWER_BEHAVIOR);
-        //motorName2.setZeroPowerBehavior(SampleSubsystemConstants.MOTOR_NAME_ZERO_POWER_BEHAVIOR);
+        motorName2.setZeroPowerBehavior(SampleSubsystemConstants.MOTOR_NAME_ZERO_POWER_BEHAVIOR);
 
         //This defines the motor direction (forward or reversed)
         motorName.setDirection(SampleSubsystemConstants.MOTOR_NAME_DIRECTION);
-        //motorName2.setDirection(SampleSubsystemConstants.MOTOR_NAME_DIRECTION);
+        motorName2.setDirection(SampleSubsystemConstants.MOTOR_NAME_DIRECTION);
 
 
         /* This defines the motor velocity PIDF gains.  Velocity PIDF values determine control    *
@@ -49,31 +49,33 @@ public class Shooter {
                 SampleSubsystemConstants.MOTOR_NAME_VELOCITY_I, //Integral Gain
                 SampleSubsystemConstants.MOTOR_NAME_VELOCITY_D, //Derivative Gain
                 SampleSubsystemConstants.MOTOR_NAME_VELOCITY_F);//Feed Forward Gain
-        //motorName2.setVelocityPIDFCoefficients(
-                /*SampleSubsystemConstants.MOTOR_NAME_VELOCITY_P, //Proportional Gain
+        motorName2.setVelocityPIDFCoefficients(
+                SampleSubsystemConstants.MOTOR_NAME_VELOCITY_P, //Proportional Gain
                 SampleSubsystemConstants.MOTOR_NAME_VELOCITY_I, //Integral Gain
                 SampleSubsystemConstants.MOTOR_NAME_VELOCITY_D, //Derivative Gain
-                SampleSubsystemConstants.MOTOR_NAME_VELOCITY_F);//Feed Forward Gain    */
+                SampleSubsystemConstants.MOTOR_NAME_VELOCITY_F);//Feed Forward Gain
 
         /* This defines the motor position PID P gain. Position control only needs P gain since   *
          * once the system reaches the target position since once at position you're only         *
          * disturbances in the system                                                             */
         motorName.setPositionPIDFCoefficients(
-                SampleSubsystemConstants.MOTOR_NAME_POSITION_P);//Proportional Gain
-        //motorName2.setPositionPIDFCoefficients(
-                //SampleSubsystemConstants.MOTOR_NAME_POSITION_P);//Proportional Gain
+                SampleSubsystemConstants.MOTOR_NAME_POSITION_P);
+        //Proportional Gain
+        motorName2.setPositionPIDFCoefficients(
+                SampleSubsystemConstants.MOTOR_NAME_POSITION_P);
+                //Proportional Gain
 
         //motorName.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-    }
+
     /* Standard functions.  All Chelsea Robotics subsystems shall have init() and update() these  *
      * methods defined. Leave empty if not needed!                                                */
-    public void init(){
-        /* Call this method at the start of your opmode logic once to execute any logic you       *
-         * want to be called on initialization. If none, leave empty!                             */
-    }
+        //public void init(){
+            /* Call this method at the start of your opmode logic once to execute any logic you       *
+             * want to be called on initialization. If none, leave empty!                             */
+        }
 
-    public void update(){
+        public void update(){
         //Call this method each time your opmode logic loops (i.e. inside while(opModeIsActive()){}
         //to execute any logic you want to be called periodically. If none, leave empty!
 
