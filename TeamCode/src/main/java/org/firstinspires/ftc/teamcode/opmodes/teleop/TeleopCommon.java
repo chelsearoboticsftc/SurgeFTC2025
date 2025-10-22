@@ -49,10 +49,11 @@ public class TeleopCommon extends LinearOpMode {
                 }
                 servo.setPower(Aim);
             }
-            if(gamepad2.b){
-                if(Aim == 0){
+            if(gamepad2.b) {
+                if (Aim == 0) {
                     Aim = -1;
                 }
+            }
                 if(Aim == -1 || Aim == 1){
                     Aim = 0;
                 }
@@ -71,7 +72,7 @@ public class TeleopCommon extends LinearOpMode {
                     intake.setMotorPower(0);
                 }
 
-            }
+
 
         }
     }
