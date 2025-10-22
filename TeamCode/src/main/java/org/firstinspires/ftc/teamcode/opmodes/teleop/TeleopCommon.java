@@ -66,9 +66,11 @@ public class TeleopCommon extends LinearOpMode {
 
                 if(gamepad1.right_trigger > 0){
                    shooter1.setPower(1.0);
+                   shooter2.setPower(1.0);
                 }
                 if(gamepad1.right_trigger < 0){
                     shooter1.setPower(0);
+                    shooter2.setPower(0);
                 }
                 if(gamepad1.left_trigger > 0){
                     intake.setPower(1.0);
