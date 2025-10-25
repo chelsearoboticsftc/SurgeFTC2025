@@ -89,5 +89,4 @@ public class SmartShooter {
         motor2.setPower(power);
         elevateor.setPower(power);
     }
-    }
 }
