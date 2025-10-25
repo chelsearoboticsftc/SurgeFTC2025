@@ -12,7 +12,7 @@ public class SmartShooter {
     //Example declare a DcMotorEx object as part of this class called 'motorName'
     DcMotorEx motor1;
     DcMotorEx motor2;
-    CRServoImplEx elevateor;
+    CRServoImplEx elevator;
 
     //Declare any other global variables for this class here
     private final LookupTable distanceToVelocity = new LookupTable(SmartShooterConstants.LOOKUP_TABLE);
@@ -20,7 +20,7 @@ public class SmartShooter {
     public SmartShooter(HardwareMap hardwareMap) {
         this.motor1 = hardwareMap.get(DcMotorEx.class, SmartShooterConstants.MOTOR_NAME);
         this.motor2 = hardwareMap.get(DcMotorEx.class, SmartShooterConstants.MOTOR_NAME2);
-        this.elevateor = hardwareMap.get(CRServoImplEx.class, "elevateor");
+        this.elevator = hardwareMap.get(CRServoImplEx.class, "elevator");
 
         //This defines the behavior at zero power (brake or coast)
         motor1.setZeroPowerBehavior(SmartShooterConstants.ZERO_POWER_BEHAVIOR);
@@ -87,6 +87,6 @@ public class SmartShooter {
         //Note: Calling setPower stops position and Velocity control!!!!
         motor1.setPower(power);
         motor2.setPower(power);
-        elevateor.setPower(power);
+        elevator.setPower(power);
     }
 }
