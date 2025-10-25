@@ -87,8 +87,7 @@ public class SmartShooter {
         //Note: Calling setPower stops position and Velocity control!!!!
         motor1.setPower(power);
         motor2.setPower(power);
+        elevateor.setPower(power);
     }
-    public void setElevateorPosition(){
-        elevateor.setPower(0.75);
     }
 }
