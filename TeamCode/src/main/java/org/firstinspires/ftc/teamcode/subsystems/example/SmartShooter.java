@@ -48,7 +48,7 @@ public class SmartShooter {
                 SmartShooterConstants.POSITION_P);//Proportional Gain
         motor2.setPositionPIDFCoefficients(
                 SmartShooterConstants.POSITION_P);//Proportional Gain
-
+        
         //motorName.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
     }
