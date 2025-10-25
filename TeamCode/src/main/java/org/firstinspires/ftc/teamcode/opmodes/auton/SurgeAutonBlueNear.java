@@ -2,13 +2,8 @@ package org.firstinspires.ftc.teamcode.opmodes.auton;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-
-import org.firstinspires.ftc.teamcode.opmodes.teleop.TeleopCommon;
-
-
 @Autonomous
-public class SurgeAutonRed extends LinearOpMode {
+public class SurgeAutonBlueNear extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
 
