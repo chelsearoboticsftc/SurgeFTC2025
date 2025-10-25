@@ -17,7 +17,7 @@ import org.firstinspires.ftc.teamcode.subsystems.example.Intake;
 
 @TeleOp
 public class TeleopCommon extends LinearOpMode {
-    CRServoImpl servo;
+    //CRServoImpl servo;
     DcMotorEx shooter1;
     DcMotorEx shooter2;
     DcMotorEx intake;
@@ -40,7 +40,7 @@ public class TeleopCommon extends LinearOpMode {
                             new Vector2d(-gamepad1.left_stick_y,
                                     -gamepad1.left_stick_x),
                             -gamepad1.right_stick_x));
-            if(gamepad2.x){
+            /*if(gamepad2.x){
                 if(Aim == 0){
                     Aim = 1;
                 }
@@ -58,22 +58,9 @@ public class TeleopCommon extends LinearOpMode {
                     Aim = 0;
                 }
                 servo.setPower(Aim);
-
-                if(gamepad1.right_trigger > 0){
-                   shooter.setMotorPower(0.7);
-                }
-                if(gamepad1.right_trigger < 0){
-                    shooter.setMotorPower(0);
-                }
-                if(gamepad1.left_trigger > 0){
-                    intake.setMotorPower(0.7);
-                }
-                if(gamepad1.left_trigger < 0){
-                    intake.setMotorPower(0);
-                }
-
-
-
+                    */
+            shooter.setMotorPower(gamepad1.right_trigger);
+            intake.setMotorPower(gamepad1.left_trigger);
         }
     }
 }
