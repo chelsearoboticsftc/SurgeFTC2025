@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.opmodes.auton;
 
 import com.acmerobotics.roadrunner.Pose2d;
+import com.acmerobotics.roadrunner.Vector2d;
 import com.acmerobotics.roadrunner.ftc.Actions;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -30,9 +31,9 @@ public class SurgeAutonRedNear extends LinearOpMode {
         if (isStopRequested()) return;
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
-                            .lineToX(12)
-                            .lineToY(12)
-                            .build()
+                        .splineTo(new Vector2d(12,12),0)
+                        .lineToX(20)
+                        .build()
 
         );
 
