@@ -6,6 +6,8 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.MecanumDrive;
+import org.firstinspires.ftc.teamcode.subsystems.example.Intake;
+import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooter;
 
 @Autonomous
 public class SurgeAutonBlueFar extends LinearOpMode {
@@ -23,5 +25,7 @@ public class SurgeAutonBlueFar extends LinearOpMode {
                         .build()
 
         );
+        SmartShooter shooter = new SmartShooter(hardwareMap);
+        Intake intake = new Intake(hardwareMap);
     }
 }

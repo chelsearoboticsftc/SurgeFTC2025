@@ -5,11 +5,10 @@ import com.acmerobotics.roadrunner.ftc.Actions;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-<<<<<<< HEAD
 import org.firstinspires.ftc.teamcode.MecanumDrive;
+import org.firstinspires.ftc.teamcode.subsystems.example.Intake;
+import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooter;
 
-=======
->>>>>>> 4fd71618041392b9e9965739fcc7cb2889b7921f
 @Autonomous
 public class SurgeAutonBlueNear extends LinearOpMode {
     @Override
@@ -26,5 +25,7 @@ public class SurgeAutonBlueNear extends LinearOpMode {
                         .build()
 
         );
+        SmartShooter shooter = new SmartShooter(hardwareMap);
+        Intake intake = new Intake(hardwareMap);
     }
 }
