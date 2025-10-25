@@ -14,6 +14,8 @@ public class SurgeAutonBlueFar extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0,0,0));
+        SmartShooter shooter = new SmartShooter(hardwareMap);
+        Intake intake = new Intake(hardwareMap);
         waitForStart();
 
         Thread.sleep((2000));
@@ -25,7 +27,5 @@ public class SurgeAutonBlueFar extends LinearOpMode {
                         .build()
 
         );
-        SmartShooter shooter = new SmartShooter(hardwareMap);
-        Intake intake = new Intake(hardwareMap);
     }
 }
