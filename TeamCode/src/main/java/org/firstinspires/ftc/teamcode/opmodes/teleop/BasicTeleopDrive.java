@@ -44,8 +44,8 @@ public class BasicTeleopDrive extends LinearOpMode {
                 intakeMotor.setMotorPower(0.75);
 
 
-           // while(gamepad1.left_trigger > 0) {
-               // intake.IndexBelt(0.75);
+            /* while(gamepad1.left_trigger > 0) {
+               intake.IndexBelt(0.75);         */
             }
             }
 
