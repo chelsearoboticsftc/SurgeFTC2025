@@ -59,8 +59,11 @@ public class TeleopCommon extends LinearOpMode {
                 }
                 servo.setPower(Aim);
                     */
-            shooter.setMotorPower(gamepad1.right_trigger);
-            intake.setMotorPower(gamepad1.left_trigger);
+            shooter.setMotorPower(gamepad2.right_trigger);
+            intake.setMotorPower(gamepad2.left_trigger);
+            if(gamepad2.bWasPressed()){
+                shooter.indexFunction();
+            }
         }
     }
 }
