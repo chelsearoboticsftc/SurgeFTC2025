@@ -62,6 +62,7 @@ public class SmartShooter {
     public void init() {
         /* Call this method at the start of your opmode logic once to execute any logic you       *
          * want to be called on initialization. If none, leave empty!                             */
+        elevator.setPosition(0);
     }
 
     public void update() {
@@ -93,5 +94,8 @@ public class SmartShooter {
     //index to shooter function
     public void indexFunction(){
         elevator.setPosition(0.5);
+    }
+    public void indexFunction2(){
+        elevator.setPosition(0);
     }
 }
