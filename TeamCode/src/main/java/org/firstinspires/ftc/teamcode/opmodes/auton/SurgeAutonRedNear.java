@@ -23,7 +23,7 @@ public class SurgeAutonRedNear extends LinearOpMode {
         intake.setMotorPower(0.5);
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
-                        .splineTo(new Vector2d(12,12),0)
+                        .splineTo(new Vector2d(-12,-12),0)
                         .lineToX(20)
                         .build()
 
