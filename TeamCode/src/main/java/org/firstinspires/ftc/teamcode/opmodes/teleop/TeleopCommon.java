@@ -19,7 +19,7 @@ import org.firstinspires.ftc.teamcode.subsystems.example.Intake;
 public class TeleopCommon extends LinearOpMode {
     //CRServoImpl servo;
     DcMotorEx shooter1;
-    DcMotorEx shooter2;
+    //DcMotorEx shooter2;
     DcMotorEx intake;
     int tagID = 20;
     int Aim = 0;
@@ -59,8 +59,14 @@ public class TeleopCommon extends LinearOpMode {
                 }
                 servo.setPower(Aim);
                     */
-            shooter.setMotorPower(gamepad1.right_trigger);
-            intake.setMotorPower(gamepad1.left_trigger);
+            shooter.setMotorPower(gamepad2.right_trigger);
+            intake.setMotorPower(gamepad2.left_trigger);
+            if(gamepad2.bWasPressed()){
+                shooter.indexFunction();
+            }
+            if(gamepad2.bWasReleased()){
+
+            }
         }
     }
 }
