@@ -24,7 +24,7 @@ public class SurgeAutonRedNear extends LinearOpMode {
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
                         .turnTo(-2)
-                        .lineToX(12)
+                        .lineToX(-12)
                         .build()
 
         );

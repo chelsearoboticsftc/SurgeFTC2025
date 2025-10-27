@@ -23,7 +23,7 @@ public class SurgeAutonBlueNear extends LinearOpMode {
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
                         //  .lineToX(12)
                         .turnTo(2)
-                        .lineToX(12)
+                        .lineToX(-12)
                         .build()
         );
         Thread.sleep(4000);
