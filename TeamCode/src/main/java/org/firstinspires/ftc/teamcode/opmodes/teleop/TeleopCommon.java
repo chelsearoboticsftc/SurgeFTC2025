@@ -19,7 +19,7 @@ import org.firstinspires.ftc.teamcode.subsystems.example.Intake;
 public class TeleopCommon extends LinearOpMode {
     //CRServoImpl servo;
     DcMotorEx shooter1;
-    DcMotorEx shooter2;
+    //DcMotorEx shooter2;
     DcMotorEx intake;
     int tagID = 20;
     int Aim = 0;
