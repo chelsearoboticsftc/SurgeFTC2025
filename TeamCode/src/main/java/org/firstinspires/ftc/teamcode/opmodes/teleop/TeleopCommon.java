@@ -65,7 +65,7 @@ public class TeleopCommon extends LinearOpMode {
                 shooter.indexFunction();
             }
             if(gamepad2.bWasReleased()){
-
+                shooter.indexFunction2();
             }
         }
     }
