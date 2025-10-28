@@ -103,4 +103,12 @@ public class SmartShooter {
     public double getElevatorPosition(){
         return elevator.getPosition();
     }
+
+    public void go(int velocity){
+        this.motor1.setVelocity(velocity);
+
+    }
+
+    public void setMotorVelocity(boolean rightBumper) {
+    }
 }
