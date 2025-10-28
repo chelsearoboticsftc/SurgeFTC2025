@@ -65,10 +65,17 @@ public class TeleopCommon extends LinearOpMode {
                 telemetry.addData("bumperWasPressed","True");
                 telemetry.update();
             }
+            if(gamepad2.x){
+                shooter.hoodAngleNear();
+
+            }
+            if(gamepad2.y){
+                shooter.hoodAngleFar();
+            }
             if(gamepad2.rightBumperWasReleased()){
                 shooter.setMotorVelocity(0);
             }
-            intake.setMotorPower(gamepad2.left_trigger);
+            intake.setMotorPower(gamepad1.left_trigger);
             if(gamepad2.bWasPressed()){
                 shooter.indexFunction();
                 telemetry.addData("bWasPressed","True");

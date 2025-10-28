@@ -15,6 +15,8 @@ public class SmartShooter {
     //DcMotorEx motor2;
     Servo elevator;
 
+    Servo servo3;
+
     //Declare any other global variables for this class here
     private final LookupTable distanceToVelocity = new LookupTable(SmartShooterConstants.LOOKUP_TABLE);
 
@@ -22,6 +24,7 @@ public class SmartShooter {
         this.motor1 = hardwareMap.get(DcMotorEx.class, SmartShooterConstants.MOTOR_NAME);
         //this.motor2 = hardwareMap.get(DcMotorEx.class, SmartShooterConstants.MOTOR_NAME2);
         this.elevator = hardwareMap.get(Servo.class, "elevator");
+        this.servo3 = hardwareMap.get(Servo.class, "servo3");
 
         //This defines the behavior at zero power (brake or coast)
         motor1.setZeroPowerBehavior(SmartShooterConstants.ZERO_POWER_BEHAVIOR);
@@ -99,6 +102,13 @@ public class SmartShooter {
     public void indexFunction2(){
         //elevator.setDirection(Servo.Direction.REVERSE);
         elevator.setPosition(0);
+    }
+    public void hoodAngleNear(){
+        servo3.setPosition(0.75);
+    }
+
+    public void hoodAngleFar(){
+        servo3.setPosition(0);
     }
     public double getElevatorPosition(){
         return elevator.getPosition();
