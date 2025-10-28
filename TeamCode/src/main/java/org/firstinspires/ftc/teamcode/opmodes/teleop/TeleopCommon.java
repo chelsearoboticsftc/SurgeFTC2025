@@ -60,7 +60,14 @@ public class TeleopCommon extends LinearOpMode {
                 }
                 servo.setPower(Aim);
                     */
-            shooter.setMotorPower(gamepad2.right_trigger);
+            if(gamepad2.rightBumperWasPressed()){
+                shooter.setMotorVelocity(6000);
+                telemetry.addData("bumperWasPressed","True");
+                telemetry.update();
+            }
+            if(gamepad2.rightBumperWasReleased()){
+                shooter.setMotorVelocity(0);
+            }
             intake.setMotorPower(gamepad2.left_trigger);
             if(gamepad2.bWasPressed()){
                 shooter.indexFunction();
@@ -68,11 +75,15 @@ public class TeleopCommon extends LinearOpMode {
                 telemetry.update();
             }
             if(gamepad2.bWasReleased()){
+                shooter.indexFunction2();
 
                 telemetry.addData("bWasPressed","False");
                 telemetry.update();
-            }
+            };
             telemetry.addData("servoPosition", shooter.getElevatorPosition());
+            telemetry.update();
+
+            telemetry.addData("bumperPosition", gamepad2.right_bumper);
             telemetry.update();
         }
     }
