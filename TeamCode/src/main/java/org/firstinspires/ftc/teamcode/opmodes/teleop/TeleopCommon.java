@@ -7,6 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServoImpl;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooter;
 import org.firstinspires.ftc.teamcode.MecanumDrive;
@@ -17,7 +18,7 @@ import org.firstinspires.ftc.teamcode.subsystems.example.Intake;
 
 @TeleOp
 public class TeleopCommon extends LinearOpMode {
-    //CRServoImpl servo;
+    Servo elevator;
     DcMotorEx shooter1;
     //DcMotorEx shooter2;
     DcMotorEx intake;
@@ -30,7 +31,7 @@ public class TeleopCommon extends LinearOpMode {
         MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0,0,0));
         SmartShooter shooter = new SmartShooter(hardwareMap);
         Intake intake = new Intake(hardwareMap);
-
+        //SmartShooter elevator = new SmartShooter(hardwareMap);
         waitForStart();
 
         while(opModeIsActive()) {
@@ -67,10 +68,12 @@ public class TeleopCommon extends LinearOpMode {
                 telemetry.update();
             }
             if(gamepad2.bWasReleased()){
-                shooter.indexFunction2();
+
                 telemetry.addData("bWasPressed","False");
                 telemetry.update();
             }
+            telemetry.addData("servoPosition", shooter.getElevatorPosition());
+            telemetry.update();
         }
     }
 }
