@@ -18,10 +18,7 @@ import org.firstinspires.ftc.teamcode.subsystems.example.Intake;
 
 @TeleOp
 public class TeleopCommon extends LinearOpMode {
-    Servo elevator;
-    DcMotorEx shooter1;
-    //DcMotorEx shooter2;
-    DcMotorEx intake;
+
     int tagID = 20;
     int Aim = 0;
 
@@ -31,38 +28,19 @@ public class TeleopCommon extends LinearOpMode {
         MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0,0,0));
         SmartShooter shooter = new SmartShooter(hardwareMap);
         Intake intake = new Intake(hardwareMap);
-        //SmartShooter elevator = new SmartShooter(hardwareMap);
         waitForStart();
 
         while(opModeIsActive()) {
             drive.setDrivePowers(
 
                     new PoseVelocity2d(
-                            new Vector2d(-gamepad1.right_stick_y,
-                                    -gamepad1.left_stick_x),
+                            new Vector2d(gamepad1.left_stick_y,
+                                    gamepad1.left_stick_x),
                             -gamepad1.right_stick_x));
-            /*if(gamepad2.x){
-                if(Aim == 0){
-                    Aim = 1;
-                }
-                if(Aim == 1 || Aim == -1){
-                    Aim = 0;
-                }
-                servo.setPower(Aim);
-            }
-            if(gamepad2.b) {
-                if (Aim == 0) {
-                    Aim = -1;
-                }
-            }
-                if(Aim == -1 || Aim == 1){
-                    Aim = 0;
-                }
-                servo.setPower(Aim);
-                    */
+
             if(gamepad2.rightBumperWasPressed()){
                 shooter.setMotorVelocity(6000);
-                telemetry.addData("bumperWasPressed","True");
+            telemetry.addData("bumperWasPressed","True");
                 telemetry.update();
             }
             if(gamepad2.x){
@@ -72,9 +50,9 @@ public class TeleopCommon extends LinearOpMode {
             if(gamepad2.y){
                 shooter.hoodAngleFar();
             }
-            if(gamepad2.rightBumperWasReleased()){
-                shooter.setMotorVelocity(0);
-            }
+            //if(gamepad2.rightBumperWasReleased()){
+            //    shooter.setMotorVelocity(0);
+            //}
             intake.setMotorPower(gamepad1.left_trigger);
             if(gamepad2.bWasPressed()){
                 shooter.indexFunction();
