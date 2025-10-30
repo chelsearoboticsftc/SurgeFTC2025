@@ -24,8 +24,8 @@ public class SurgeAutonBlueNear extends LinearOpMode {
                         .lineToX(-30)
                         .build()
         );
-        shooter.shoot(6000);
-
+        shooter.shoot(4000);
+ 
         Thread.sleep(2000);
         intake.setMotorPower(-1);
         Thread.sleep(500);
