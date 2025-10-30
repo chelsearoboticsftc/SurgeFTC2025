@@ -28,7 +28,7 @@ public class SurgeAutonRedNear extends LinearOpMode {
 
         );
         Thread.sleep(2000);
-        shooter.shoot(10);
+        shooter.shoot(6000);
 
         Thread.sleep(12000);
         shooter.shoot(0);

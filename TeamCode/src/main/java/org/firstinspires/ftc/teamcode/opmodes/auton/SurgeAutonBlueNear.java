@@ -18,16 +18,29 @@ public class SurgeAutonBlueNear extends LinearOpMode {
         SmartShooter shooter = new SmartShooter(hardwareMap);
         Intake intake = new Intake(hardwareMap);
         waitForStart();
-        intake.setMotorPower(0.5);
+        //intake.setMotorPower(0.5);
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
                         .lineToX(-30)
                         .build()
         );
         Thread.sleep(2000);
-        shooter.shoot(10);
+        shooter.shoot(6000);
+        Thread.sleep(2000);
+        shooter.indexFunction();
 
-        Thread.sleep((12000));
+        Thread.sleep(2000);
+        shooter.shoot(6000);
+        Thread.sleep(2000);
+        shooter.indexFunction();
+
+        Thread.sleep(2000);
+        shooter.shoot(6000);
+        Thread.sleep(2000);
+        shooter.indexFunction();
+
+
+
         shooter.shoot(0);
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))

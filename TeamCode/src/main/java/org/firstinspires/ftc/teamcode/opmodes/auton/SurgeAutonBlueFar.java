@@ -18,7 +18,7 @@ public class SurgeAutonBlueFar extends LinearOpMode {
         Intake intake = new Intake(hardwareMap);
         waitForStart();
         intake.setMotorPower(0.5);
-        shooter.shoot(10);
+        shooter.shoot(6000);
         Thread.sleep(7000);
         double setMotorVelocity = 0;
 

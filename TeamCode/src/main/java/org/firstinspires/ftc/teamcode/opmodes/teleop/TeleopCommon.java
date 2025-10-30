@@ -54,11 +54,13 @@ public class TeleopCommon extends LinearOpMode {
             //    shooter.setMotorVelocity(0);
             //}
             intake.setMotorPower(gamepad1.left_trigger);
+            intake.setMotorPower(-gamepad1.right_trigger);
             if(gamepad2.bWasPressed()){
                 shooter.indexFunction();
                 telemetry.addData("bWasPressed","True");
                 telemetry.update();
             }
+
             if(gamepad2.bWasReleased()){
                 shooter.indexFunction2();
 
