@@ -55,22 +55,22 @@ public class TeleopCommon extends LinearOpMode {
             //}
             //intake.setMotorPower(gamepad1.left_trigger);
             if(gamepad1.left_bumper){
-                intake.setMotorPower(1);
+                intake.setMotorPower(1.0);
                 telemetry.addData("Intake Speed",intake.getMotorPower());
                 telemetry.update();
             }
-            if(!gamepad1.left_bumper){
+            /*if(!gamepad1.left_bumper){
                 intake.setMotorPower(0);
                 telemetry.addData("Intake Speed",intake.getMotorPower());
                 telemetry.update();
-            }
+            }*/
             //intake.setMotorPower(-gamepad1.right_trigger);
-            if(gamepad1.right_bumper){
-                intake.setMotorPower(-1);
+            else if(gamepad1.right_bumper){
+                intake.setMotorPower(-0.5);
                 telemetry.addData("Intake Speed",intake.getMotorPower());
                 telemetry.update();
             }
-            if(!gamepad1.right_bumper){
+            else{
                 intake.setMotorPower(0);
             }
             if(gamepad2.bWasPressed()){
