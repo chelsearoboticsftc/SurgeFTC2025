@@ -17,12 +17,12 @@ public class SurgeAutonRedFar extends LinearOpMode {
         SmartShooter shooter = new SmartShooter(hardwareMap);
         Intake intake = new Intake(hardwareMap);
         waitForStart();
-        intake.setMotorPower(0.5);
-        shooter.shoot(6000);
-        Thread.sleep(7000);
-        double setMotorVelocity = 0;
-
-        Thread.sleep((2000));
+//        intake.setMotorPower(0.5);
+//        shooter.shoot(6000);
+//        Thread.sleep(7000);
+//        double setMotorVelocity = 0;
+//
+//        Thread.sleep((2000));
 
         if (isStopRequested()) return;
         Actions.runBlocking(

@@ -104,11 +104,9 @@ public class SmartShooter {
         elevator.setPosition(0);
     }
     public void hoodAngleNear(){
-<<<<<<< HEAD
         servo3.setPosition(0.90);
-=======
         servo3.setPosition(0.9);
->>>>>>> 99b09140821eeace7520317ef0bb1c859b9be07a
+
     }
 
     public void hoodAngleFar(){

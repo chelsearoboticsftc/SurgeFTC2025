@@ -22,24 +22,29 @@ public class SurgeAutonBlueNear extends LinearOpMode {
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
                         .lineToX(-30)
-                        .build()
-        );
-        shooter.shoot(4000);
- 
-        Thread.sleep(2000);
-        intake.setMotorPower(-1);
-        Thread.sleep(500);
-        shooter.indexFunction();
-
-        Thread.sleep(2000);
-        intake.setMotorPower(-1);
-        Thread.sleep(500);
-        shooter.indexFunction();
-
-        Thread.sleep(2000);
-        intake.setMotorPower(-1);
-        Thread.sleep(500);
-        shooter.indexFunction();
+                        .build());
+//        );
+//        shooter.shoot(4000);
+//
+//        Thread.sleep(2000);
+//        intake.setMotorPower(-1);
+//        Thread.sleep(70);
+//        intake.setMotorPower(0);
+//        shooter.indexFunction();
+//
+//        intake.setMotorPower(1);
+//        Thread.sleep(2000);
+//        intake.setMotorPower(-1);
+//        Thread.sleep(70);
+//         intake.setMotorPower(0);
+//       shooter.indexFunction();
+//
+//         intake.setMotorPower(1);
+//        Thread.sleep(2000);
+//        intake.setMotorPower(-1);
+//        Thread.sleep(70);
+//        intake.setMotorPower(0);
+//        shooter.indexFunction();
 
 
 
@@ -48,7 +53,7 @@ public class SurgeAutonBlueNear extends LinearOpMode {
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
                         .turnTo(2.4)
-                        .lineToX(5)
+                        .lineToX(20)
                         .build()
         );
         if (isStopRequested()) return;

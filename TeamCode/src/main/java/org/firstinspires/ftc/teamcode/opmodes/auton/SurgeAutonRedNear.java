@@ -24,18 +24,18 @@ public class SurgeAutonRedNear extends LinearOpMode {
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
                         .lineToX(-30)
-                        .build()
+                        .build());
 
-        );
-        Thread.sleep(2000);
-        shooter.shoot(6000);
-
-        Thread.sleep(12000);
-        shooter.shoot(0);
+//        );
+//        Thread.sleep(2000);
+//        shooter.shoot(6000);
+//
+//        Thread.sleep(12000);
+//        shooter.shoot(0);
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
                         .turnTo(-2.4)
-                        .lineToX(5)
+                        .lineToX(20)
                         .build()
 
         );
