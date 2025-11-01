@@ -97,7 +97,7 @@ public class SmartShooter {
     //index to shooter function
     public void indexFunction(){
         //elevator.setDirection(Servo.Direction.FORWARD);
-        elevator.setPosition(0.5);
+        elevator.setPosition(0.7);
     }
     public void indexFunction2(){
         //elevator.setDirection(Servo.Direction.REVERSE);

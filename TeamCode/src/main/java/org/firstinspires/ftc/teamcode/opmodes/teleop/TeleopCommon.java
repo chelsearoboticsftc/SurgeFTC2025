@@ -39,7 +39,7 @@ public class TeleopCommon extends LinearOpMode {
                             -gamepad1.right_stick_x));
 
             if(gamepad2.rightBumperWasPressed()){
-                shooter.setMotorVelocity(4000);
+                shooter.setMotorVelocity(2000);
             telemetry.addData("bumperWasPressed","True");
                 telemetry.update();
             }
@@ -47,9 +47,9 @@ public class TeleopCommon extends LinearOpMode {
                 shooter.hoodAngleNear();
 
             }
-            if(gamepad2.y){
-                shooter.hoodAngleFar();
-            }
+//            if(gamepad2.y){
+//                shooter.hoodAngleFar();
+//            }
             //if(gamepad2.rightBumperWasReleased()){
             //    shooter.setMotorVelocity(0);
             //}
