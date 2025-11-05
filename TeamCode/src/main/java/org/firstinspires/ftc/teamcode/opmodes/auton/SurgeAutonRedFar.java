@@ -13,7 +13,8 @@ import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooter;
 public class SurgeAutonRedFar extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
-        MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0,0,0));
+        MecanumDrive drive = new MecanumDrive(hardwareMap, new
+                Pose2d(0,0,0));
         SmartShooter shooter = new SmartShooter(hardwareMap);
         Intake intake = new Intake(hardwareMap);
         waitForStart();
@@ -25,7 +26,7 @@ public class SurgeAutonRedFar extends LinearOpMode {
 //        Thread.sleep((2000));
 
         if (isStopRequested()) return;
-        shooter.setMotorVelocity(2000);
+        shooter.setMotorVelocity(2500);
         shooter.hoodAngleNear();
         Thread.sleep(7000);
         shooter.indexFunction();

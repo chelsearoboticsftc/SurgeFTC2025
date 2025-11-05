@@ -39,7 +39,7 @@ public class TeleopCommon extends LinearOpMode {
                             -gamepad1.right_stick_x));
 
             if(gamepad2.rightBumperWasPressed()){
-                shooter.setMotorVelocity(2000);
+                shooter.setMotorVelocity(2200);
             telemetry.addData("bumperWasPressed","True");
                 telemetry.update();
             }

@@ -25,7 +25,7 @@ public class SurgeAutonBlueFar extends LinearOpMode {
 //        Thread.sleep((2000));
 
         if (isStopRequested()) return;
-        shooter.setMotorVelocity(2300);
+        shooter.setMotorVelocity(2500);
         shooter.hoodAngleNear();
         Thread.sleep(7000);
         shooter.indexFunction();
