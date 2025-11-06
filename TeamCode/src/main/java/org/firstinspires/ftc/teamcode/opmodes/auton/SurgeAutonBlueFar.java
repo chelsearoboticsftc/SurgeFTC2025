@@ -50,9 +50,19 @@ public class SurgeAutonBlueFar extends LinearOpMode {
         shooter.indexFunction2();
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
-                        .lineToX(15)
+                        .lineToX(28)
+                        .turnTo(2.5)
+                        .build());
+                        intake.setMotorPower(1);
+        Actions.runBlocking(
+                drive.actionBuilder(new Pose2d(  0,  0, 0))
+                        .lineToX(16)
                         .build()
-
         );
+        Thread.sleep(1100);
+        intake.setMotorPower(0);
+
+
+
     }
 }
