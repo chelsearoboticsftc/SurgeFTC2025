@@ -1,9 +1,7 @@
 package org.firstinspires.ftc.teamcode.subsystems.example;
 
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.CRServoImplEx;
 import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.utils.LookupTable;
@@ -122,5 +120,9 @@ public class SmartShooter {
     }
 
     public void setMotorVelocity(boolean rightBumper) {
+    }
+
+    public void getVelocity() {
+        motor1.getVelocity();
     }
 }
