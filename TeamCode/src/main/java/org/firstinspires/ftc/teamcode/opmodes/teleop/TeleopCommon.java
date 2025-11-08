@@ -31,6 +31,7 @@ public class TeleopCommon extends LinearOpMode {
         waitForStart();
 
         while(opModeIsActive()) {
+            SmartShooter.getMotorVelocity();
             drive.setDrivePowers(
 
                     new PoseVelocity2d(
@@ -91,7 +92,7 @@ public class TeleopCommon extends LinearOpMode {
             telemetry.addData("bumperPosition", gamepad2.right_bumper);
             telemetry.update();
 
-            telemetry.addData("Velocity", SmartShooter.getVelocity());
+            telemetry.addData("Velocity", SmartShooter.getMotorVelocity());
             telemetry.update();
         }
     }
