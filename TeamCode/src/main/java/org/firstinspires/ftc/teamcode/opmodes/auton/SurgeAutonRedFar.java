@@ -27,27 +27,27 @@ public class SurgeAutonRedFar extends LinearOpMode {
 
         if (isStopRequested()) return;
         shooter.setMotorVelocity(2500);
-        shooter.hoodAngleNear();
-        Thread.sleep(7000);
+        //shooter.hoodAngleNear();
+        Thread.sleep(3000);
         shooter.indexFunction();
-        Thread.sleep(2000);
+        Thread.sleep(1500);
         shooter.indexFunction2();
-        Thread.sleep(2000);
+        Thread.sleep(1500);
         intake.setMotorPower(1);
-        Thread.sleep(2000);
+        Thread.sleep(1500);
         intake.setMotorPower(-0.5);
         Thread.sleep(300);
         intake.setMotorPower(0);
         shooter.indexFunction();
-        Thread.sleep(2000);
+        Thread.sleep(1500);
         shooter.indexFunction2();
         Thread.sleep(1000);
         intake.setMotorPower(1);
-        Thread.sleep(2000);
+        Thread.sleep(1500);
         intake.setMotorPower(0);
         Thread.sleep(1500);
         shooter.indexFunction();
-        Thread.sleep(2000);
+        Thread.sleep(1500);
         shooter.indexFunction2();
 
 
