@@ -13,7 +13,7 @@ import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooter;
 import org.firstinspires.ftc.teamcode.MecanumDrive;
 import org.firstinspires.ftc.teamcode.subsystems.example.Intake;
 
-//trst
+//trust
 //Greyson is better than Ben at google baseball
 
 @TeleOp
@@ -31,7 +31,6 @@ public class TeleopCommon extends LinearOpMode {
         waitForStart();
 
         while(opModeIsActive()) {
-            SmartShooter.getMotorVelocity();
             drive.setDrivePowers(
 
                     new PoseVelocity2d(
@@ -92,7 +91,7 @@ public class TeleopCommon extends LinearOpMode {
             telemetry.addData("bumperPosition", gamepad2.right_bumper);
             telemetry.update();
 
-            telemetry.addData("Velocity", SmartShooter.getMotorVelocity());
+            telemetry.addData("Velocity", shooter.getVelocity());
             telemetry.update();
         }
     }

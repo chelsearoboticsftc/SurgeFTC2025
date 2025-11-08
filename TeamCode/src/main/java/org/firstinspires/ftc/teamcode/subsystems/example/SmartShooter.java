@@ -113,7 +113,7 @@ public class SmartShooter {
     public double getElevatorPosition(){
         return elevator.getPosition();
     }
-    public double getMotorVelocity(){
+    public double getVelocity(){
         return motor1.getVelocity();
     }
 
