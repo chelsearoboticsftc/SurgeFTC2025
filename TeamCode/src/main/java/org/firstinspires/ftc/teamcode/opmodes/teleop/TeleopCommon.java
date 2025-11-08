@@ -91,7 +91,7 @@ public class TeleopCommon extends LinearOpMode {
             telemetry.addData("bumperPosition", gamepad2.right_bumper);
             telemetry.update();
 
-            telemetry.addData("Velocity", shooter.getVelocity());
+            telemetry.addData("Velocity", SmartShooter.getVelocity());
             telemetry.update();
         }
     }
