@@ -55,18 +55,25 @@ shooter.setMotorVelocity(0);
 
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
-                        .lineToX(28)
-                        .turnTo(2.55)
+                        .turnTo(0.523)
+                        .lineToX(-28)
                         .build());
-                        intake.setMotorPower(1);
+ //                       intake.setMotorPower(1);
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
-                        .lineToX(24)
+                        .lineToX(56)
                         .build());
 
-        drive.actionBuilder(new Pose2d(  0,  0, 0))
-                .lineToX(-34)
-                .build();
+        Actions.runBlocking(
+                drive.actionBuilder(new Pose2d(  0,  0, 0))
+                        .turnTo(01.57)
+                        .build());
+
+
+
+//        drive.actionBuilder(new Pose2d(  0,  0, 0))
+//                .lineToX(-34)
+//                .build();
 
 
     }
