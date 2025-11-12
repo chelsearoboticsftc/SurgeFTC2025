@@ -45,8 +45,8 @@ public class limelightTest extends LinearOpMode {
 
             }
             if(gamepad1.aWasPressed()){
-                if (limelight.getresult().getTx() < -0.1){
-                    while(limelight.getresult().getTx() < -0.1){
+                if (limelight.getresult().getTx() < 6.5){
+                    while(limelight.getresult().getTx() < 6.5){
                         drive.setDrivePowers( new PoseVelocity2d(
                                 new Vector2d(0,
                                         0),
@@ -59,8 +59,8 @@ public class limelightTest extends LinearOpMode {
 
 
                 }
-                else if (limelight.getresult().getTx() > 0.1){
-                    while(limelight.getresult().getTx() > 0.1){
+                else if (limelight.getresult().getTx() > 7.5){
+                    while(limelight.getresult().getTx() > 7.5){
                         drive.setDrivePowers( new PoseVelocity2d(
                                 new Vector2d(0,
                                         0),

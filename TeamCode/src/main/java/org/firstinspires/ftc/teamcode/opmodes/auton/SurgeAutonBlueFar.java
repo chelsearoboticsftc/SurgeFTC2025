@@ -61,13 +61,19 @@ shooter.setMotorVelocity(0);
  //                       intake.setMotorPower(1);
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
-                        .lineToX(56)
+                        .lineToX(22)
                         .build());
 
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
                         .turnTo(01.57)
                         .build());
+        if(isStopRequested())return;
+        intake.setMotorPower(1);
+
+        drive.actionBuilder(new Pose2d(  0,  0, 0))
+                .lineToX(12)
+                .build();
 
 
 
