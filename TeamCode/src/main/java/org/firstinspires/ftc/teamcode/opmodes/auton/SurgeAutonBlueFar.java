@@ -55,7 +55,7 @@ shooter.setMotorVelocity(0);
 
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
-                        .turnTo(0.523)
+                        .turnTo(-0.523)
                         .lineToX(-28)
                         .build());
  //                       intake.setMotorPower(1);
@@ -72,8 +72,10 @@ shooter.setMotorVelocity(0);
         intake.setMotorPower(1);
 
         drive.actionBuilder(new Pose2d(  0,  0, 0))
-                .lineToX(12)
+                .lineToX(18)
                 .build();
+
+
 
 
 
