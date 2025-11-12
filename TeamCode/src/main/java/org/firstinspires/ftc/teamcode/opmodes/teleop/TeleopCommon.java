@@ -12,6 +12,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooter;
 import org.firstinspires.ftc.teamcode.MecanumDrive;
 import org.firstinspires.ftc.teamcode.subsystems.example.Intake;
+import org.firstinspires.ftc.teamcode.subsystems.example.limelightVision;
 
 //trust
 //Greyson is better than Ben at google baseball
@@ -28,6 +29,8 @@ public class TeleopCommon extends LinearOpMode {
         MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0,0,0));
         SmartShooter shooter = new SmartShooter(hardwareMap);
         Intake intake = new Intake(hardwareMap);
+        limelightVision limelight = new limelightVision(hardwareMap);
+        Pose2d botpose = limelight.getRobotPos();
         waitForStart();
 
         while(opModeIsActive()) {
@@ -86,16 +89,31 @@ public class TeleopCommon extends LinearOpMode {
                 telemetry.update();
             };
             telemetry.addData("servoPosition", shooter.getElevatorPosition());
-            telemetry.update();
+
 
             telemetry.addData("bumperPosition", gamepad2.right_bumper);
-            telemetry.update();
+
 
             telemetry.addData("Velocity", shooter.getVelocity());
+            if(limelight.getresult() != null){
+                if(limelight.getresult().isValid()){
+
+
+                    telemetry.addData("Pose2d that the limelight gives", botpose);
+                    telemetry.addData("tx",limelight.getresult().getTx());
+                    telemetry.addData("ty", limelight.getresult().getTy());
+                    telemetry.addData("pos",botpose.position);
+                    telemetry.addData("heading",botpose.heading);
+                    telemetry.update();
+
+                }
+
+            }
             telemetry.update();
         }
     }
 }
+
 
 
            /*
