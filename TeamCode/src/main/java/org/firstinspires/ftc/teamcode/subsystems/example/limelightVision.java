@@ -67,36 +67,11 @@ public class limelightVision{
 //    //public void setPipeLine(int pipeline){
 //        limelight.pipelineSwitch(pipeline);
 //    }
-    MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0, 0, 0));
-        public void limelightAim(){
-            if (getresult().getTx() < 6.5){
-                while(getresult().getTx() < 6.5){
-                    drive.setDrivePowers( new PoseVelocity2d(
-                            new Vector2d(0,
-                                    0),
-                            0.2));
-                }
-                drive.setDrivePowers( new PoseVelocity2d(
-                        new Vector2d(0,
-                                0),
-                        0));
 
 
-            }
-            else if (getresult().getTx() > 7.5){
-                while(getresult().getTx() > 7.5){
-                    drive.setDrivePowers( new PoseVelocity2d(
-                            new Vector2d(0,
-                                    0),
-                            -0.2));
-                }
-                drive.setDrivePowers( new PoseVelocity2d(
-                        new Vector2d(0,
-                                0),
-                        0));
 
 
-            }
-        }
+
+
 
 }
