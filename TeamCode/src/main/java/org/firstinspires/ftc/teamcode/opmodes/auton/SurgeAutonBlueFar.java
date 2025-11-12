@@ -66,7 +66,7 @@ shooter.setMotorVelocity(0);
 
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
-                        .turnTo(01.57)
+                        .turnTo(-1.57)
                         .build());
         if(isStopRequested())return;
         intake.setMotorPower(1);
