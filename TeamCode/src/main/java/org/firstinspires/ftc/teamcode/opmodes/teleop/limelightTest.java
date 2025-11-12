@@ -45,34 +45,35 @@ public class limelightTest extends LinearOpMode {
 
             }
             if(gamepad1.aWasPressed()){
-                if (limelight.getresult().getTx() < 6.5){
-                    while(limelight.getresult().getTx() < 6.5){
-                        drive.setDrivePowers( new PoseVelocity2d(
-                                new Vector2d(0,
-                                        0),
-                                0.2));
-                    }
-                    drive.setDrivePowers( new PoseVelocity2d(
-                            new Vector2d(0,
-                                    0),
-                            0));
-
-
-                }
-                else if (limelight.getresult().getTx() > 7.5){
-                    while(limelight.getresult().getTx() > 7.5){
-                        drive.setDrivePowers( new PoseVelocity2d(
-                                new Vector2d(0,
-                                        0),
-                                -0.2));
-                    }
-                    drive.setDrivePowers( new PoseVelocity2d(
-                            new Vector2d(0,
-                                    0),
-                            0));
-
-
-                }
+                limelight.limelightAim();
+//                if (limelight.getresult().getTx() < 6.5){
+//                    while(limelight.getresult().getTx() < 6.5){
+//                        drive.setDrivePowers( new PoseVelocity2d(
+//                                new Vector2d(0,
+//                                        0),
+//                                0.2));
+//                    }
+//                    drive.setDrivePowers( new PoseVelocity2d(
+//                            new Vector2d(0,
+//                                    0),
+//                            0));
+//
+//
+//                }
+//                else if (limelight.getresult().getTx() > 7.5){
+//                    while(limelight.getresult().getTx() > 7.5){
+//                        drive.setDrivePowers( new PoseVelocity2d(
+//                                new Vector2d(0,
+//                                        0),
+//                                -0.2));
+//                    }
+//                    drive.setDrivePowers( new PoseVelocity2d(
+//                            new Vector2d(0,
+//                                    0),
+//                            0));
+//
+//
+//                }
             }
         }
 

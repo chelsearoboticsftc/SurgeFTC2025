@@ -7,6 +7,8 @@ import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.har
 import android.util.Size;
 
 import com.acmerobotics.roadrunner.Pose2d;
+import com.acmerobotics.roadrunner.PoseVelocity2d;
+import com.acmerobotics.roadrunner.Vector2d;
 import com.qualcomm.hardware.limelightvision.LLResult;
 import com.qualcomm.hardware.limelightvision.Limelight3A;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -18,6 +20,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.Pose3D;
 import org.firstinspires.ftc.robotcore.external.navigation.Position;
 import org.firstinspires.ftc.robotcore.external.navigation.YawPitchRollAngles;
+import org.firstinspires.ftc.teamcode.MecanumDrive;
 import org.firstinspires.ftc.vision.VisionPortal;
 import org.firstinspires.ftc.vision.apriltag.AprilTagDetection;
 import org.firstinspires.ftc.vision.apriltag.AprilTagProcessor;
@@ -61,10 +64,39 @@ public class limelightVision{
 
         return new Pose2d(x,y,robotYaw);
     }
-    public void setPipeLine(int pipeline){
-        limelight.pipelineSwitch(pipeline);
-    }
+//    //public void setPipeLine(int pipeline){
+//        limelight.pipelineSwitch(pipeline);
+//    }
+    MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0, 0, 0));
+        public void limelightAim(){
+            if (getresult().getTx() < 6.5){
+                while(getresult().getTx() < 6.5){
+                    drive.setDrivePowers( new PoseVelocity2d(
+                            new Vector2d(0,
+                                    0),
+                            0.2));
+                }
+                drive.setDrivePowers( new PoseVelocity2d(
+                        new Vector2d(0,
+                                0),
+                        0));
 
 
+            }
+            else if (getresult().getTx() > 7.5){
+                while(getresult().getTx() > 7.5){
+                    drive.setDrivePowers( new PoseVelocity2d(
+                            new Vector2d(0,
+                                    0),
+                            -0.2));
+                }
+                drive.setDrivePowers( new PoseVelocity2d(
+                        new Vector2d(0,
+                                0),
+                        0));
+
+
+            }
+        }
 
 }
