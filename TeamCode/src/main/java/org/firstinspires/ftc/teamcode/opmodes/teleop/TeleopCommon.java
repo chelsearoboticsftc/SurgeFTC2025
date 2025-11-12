@@ -109,6 +109,38 @@ public class TeleopCommon extends LinearOpMode {
                 }
 
             }
+
+            if(gamepad1.bWasPressed()){
+
+                if (limelight.getresult().getTx() < 6.5){
+                    while(limelight.getresult().getTx() < 6.5){
+                        drive.setDrivePowers( new PoseVelocity2d(
+                                new Vector2d(0,
+                                        0),
+                                0.2));
+                    }
+                    drive.setDrivePowers( new PoseVelocity2d(
+                            new Vector2d(0,
+                                    0),
+                            0));
+
+
+                }
+                else if (limelight.getresult().getTx() > 7.5){
+                    while(limelight.getresult().getTx() > 7.5){
+                        drive.setDrivePowers( new PoseVelocity2d(
+                                new Vector2d(0,
+                                        0),
+                                -0.2));
+                    }
+                    drive.setDrivePowers( new PoseVelocity2d(
+                            new Vector2d(0,
+                                    0),
+                            0));
+
+
+                }
+            }
             telemetry.update();
         }
     }
