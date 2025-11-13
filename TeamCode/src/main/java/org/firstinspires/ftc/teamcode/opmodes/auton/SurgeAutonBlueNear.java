@@ -23,10 +23,16 @@ public class SurgeAutonBlueNear extends LinearOpMode {
         Pose2d botpose = limelight.getRobotPos();
         Intake intake = new Intake(hardwareMap);
         waitForStart();
+
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(0, 0, 0))
-                        .lineToX(6)
+                        .lineToX(50)
                         .build());
+
+//        Actions.runBlocking(
+//                drive.actionBuilder(new Pose2d(0, 0, 0))
+//                        .lineToX(6)
+//                        .build());
 
         if (isStopRequested()) return;
         shooter.setMotorVelocity(2500);
@@ -85,8 +91,8 @@ public class SurgeAutonBlueNear extends LinearOpMode {
 
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(0, 0, 0))
-                        .turnTo(-0.523)
-                        .lineToX(-28)
+                        .turnTo(2.4)
+                        .lineToX(20)
                         .build());
     }
 }
