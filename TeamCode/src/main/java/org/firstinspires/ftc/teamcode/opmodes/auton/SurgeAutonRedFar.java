@@ -24,10 +24,12 @@ public class SurgeAutonRedFar extends LinearOpMode {
         Intake intake = new Intake(hardwareMap);
         waitForStart();
 
+        if (isStopRequested()) return;
+        shooter.setMotorVelocity(2500);
 
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
-                        .lineToX(10)
+                        .lineToX(6)
                         .build());
 
         if (isStopRequested()) return;
@@ -64,6 +66,8 @@ public class SurgeAutonRedFar extends LinearOpMode {
         Thread.sleep(3000);
         shooter.indexFunction();
         Thread.sleep(1500);
+        intake.setMotorPower(-0.5);
+        Thread.sleep(300);
         shooter.indexFunction2();
         Thread.sleep(1500);
         intake.setMotorPower(1);
@@ -89,7 +93,25 @@ public class SurgeAutonRedFar extends LinearOpMode {
 
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
-                        .lineToX(20)
+                        .turnTo(0.523)
+                        .lineToX(-28)
                         .build());
-    }
-}
+        //                       intake.setMotorPower(1);
+        Actions.runBlocking(
+                drive.actionBuilder(new Pose2d(  0,  0, 0))
+                        .lineToX(22)
+                        .build());
+
+        Actions.runBlocking(
+                drive.actionBuilder(new Pose2d(  0,  0, 0))
+                        .turnTo(1.57)
+                        .build());
+        if(isStopRequested())return;
+        intake.setMotorPower(1);
+
+        Actions.runBlocking(
+                drive.actionBuilder(new Pose2d(  0,  0, 0))
+                        .lineToX(-26)
+                        .build());
+                 }
+             }
