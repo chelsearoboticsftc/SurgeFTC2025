@@ -1,6 +1,8 @@
 package org.firstinspires.ftc.teamcode.opmodes.auton;
 
 import com.acmerobotics.roadrunner.Pose2d;
+import com.acmerobotics.roadrunner.PoseVelocity2d;
+import com.acmerobotics.roadrunner.Vector2d;
 import com.acmerobotics.roadrunner.ftc.Actions;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -8,6 +10,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import org.firstinspires.ftc.teamcode.MecanumDrive;
 import org.firstinspires.ftc.teamcode.subsystems.example.Intake;
 import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooter;
+import org.firstinspires.ftc.teamcode.subsystems.example.limelightVision;
 
 @Autonomous
 public class SurgeAutonBlueFar extends LinearOpMode {
@@ -15,6 +18,8 @@ public class SurgeAutonBlueFar extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0,0,0));
         SmartShooter shooter = new SmartShooter(hardwareMap);
+        limelightVision limelight = new limelightVision(hardwareMap);
+        Pose2d botpose = limelight.getRobotPos();
         Intake intake = new Intake(hardwareMap);
         waitForStart();
 //        intake.setMotorPower(0.5);
@@ -24,8 +29,43 @@ public class SurgeAutonBlueFar extends LinearOpMode {
 //
 //        Thread.sleep((2000));
 
+
+
+        Actions.runBlocking(
+                drive.actionBuilder(new Pose2d(  0,  0, 0))
+                        .lineToX(10)
+                        .build());
+
         if (isStopRequested()) return;
         shooter.setMotorVelocity(2500);
+        if (limelight.getresult().getTx() < 6.5){
+            while(limelight.getresult().getTx() < 6.5){
+                drive.setDrivePowers( new PoseVelocity2d(
+                        new Vector2d(0,
+                                0),
+                        0.2));
+            }
+            drive.setDrivePowers( new PoseVelocity2d(
+                    new Vector2d(0,
+                            0),
+                    0));
+
+
+        }
+        else if (limelight.getresult().getTx() > 7.5){
+            while(limelight.getresult().getTx() > 7.5){
+                drive.setDrivePowers( new PoseVelocity2d(
+                        new Vector2d(0,
+                                0),
+                        -0.2));
+            }
+            drive.setDrivePowers( new PoseVelocity2d(
+                    new Vector2d(0,
+                            0),
+                    0));
+
+
+        }
        // shooter.hoodAngleNear();
         Thread.sleep(3000);
         shooter.indexFunction();
@@ -71,9 +111,10 @@ shooter.setMotorVelocity(0);
         if(isStopRequested())return;
         intake.setMotorPower(1);
 
+        Actions.runBlocking(
         drive.actionBuilder(new Pose2d(  0,  0, 0))
-                .lineToX(18)
-                .build();
+                .lineToX(-26)
+                .build());
 
 
 
