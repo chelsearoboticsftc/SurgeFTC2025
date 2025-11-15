@@ -25,13 +25,8 @@ public class SurgeAutonRedNear extends LinearOpMode {
 
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(0, 0, 0))
-                        .lineToX(50)
+                        .lineToX(-45)
                         .build());
-
-//        Actions.runBlocking(
-//                drive.actionBuilder(new Pose2d(0, 0, 0))
-//                        .lineToX(6)
-//                        .build());
 
         if (isStopRequested()) return;
         shooter.setMotorVelocity(2500);
@@ -63,36 +58,40 @@ public class SurgeAutonRedNear extends LinearOpMode {
 
         }
         // shooter.hoodAngleNear();
-        Thread.sleep(3000);
-        shooter.indexFunction();
-        Thread.sleep(1500);
-        intake.setMotorPower(-0.5);
-        Thread.sleep(300);
-        intake.setMotorPower(0);
-        shooter.indexFunction2();
-        Thread.sleep(1500);
-        intake.setMotorPower(1);
-        Thread.sleep(1500);
-        intake.setMotorPower(-0.5);
-        Thread.sleep(300);
-        intake.setMotorPower(0);
-        shooter.indexFunction();
-        Thread.sleep(1500);
-        shooter.indexFunction2();
-        Thread.sleep(1000);
-        intake.setMotorPower(1);
-        Thread.sleep(1500);
-        intake.setMotorPower(0);
-        Thread.sleep(1500);
-        shooter.indexFunction();
-        Thread.sleep(1500);
-        shooter.indexFunction2();
+//        Thread.sleep(3000);
+//        shooter.indexFunction();
+//        Thread.sleep(1500);
+//        intake.setMotorPower(-0.5);
+//        Thread.sleep(300);
+//        intake.setMotorPower(0);
+//        shooter.indexFunction2();
+//        Thread.sleep(1500);
+//        intake.setMotorPower(1);
+//        Thread.sleep(1500);
+//        intake.setMotorPower(-0.5);
+//        Thread.sleep(300);
+//        intake.setMotorPower(0);
+//        shooter.indexFunction();
+//        Thread.sleep(1500);
+//        shooter.indexFunction2();
+//        Thread.sleep(1000);
+//        intake.setMotorPower(1);
+//        Thread.sleep(1500);
+//        intake.setMotorPower(0);
+//        Thread.sleep(1500);
+//        shooter.indexFunction();
+//        Thread.sleep(1500);
+//        shooter.indexFunction2();
 
 
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(0, 0, 0))
-                        .turnTo(-2.4)
-                        .lineToX(20)
+                        .strafeTo(new Vector2d(6, 32))
                         .build());
+
+
+
+
+
     }
 }
