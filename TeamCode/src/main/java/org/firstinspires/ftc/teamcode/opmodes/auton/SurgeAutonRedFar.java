@@ -51,7 +51,7 @@ public class SurgeAutonRedFar extends LinearOpMode {
         shooter.indexFunction2();
 
 
-        Actions.runBlocking)
+        Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
                         .lineToX(20)
                         .build()

@@ -22,6 +22,7 @@ public class TeleopCommon extends LinearOpMode {
 
     int tagID = 20;
     int Aim = 0;
+    CRServoImpl turret;
 
     public void setTagID(int tagID) { this.tagID = tagID; }
     @Override
@@ -118,12 +119,13 @@ public class TeleopCommon extends LinearOpMode {
                                 new Vector2d(0,
                                         0),
                                 0.2));
+                        //turret.setPower(0.5);
                     }
                     drive.setDrivePowers( new PoseVelocity2d(
                             new Vector2d(0,
                                     0),
                             0));
-
+                        //turret.setPower(0);
 
                 }
                 else if (limelight.getresult().getTx() > 7.5){
@@ -132,12 +134,13 @@ public class TeleopCommon extends LinearOpMode {
                                 new Vector2d(0,
                                         0),
                                 -0.2));
+                        //turret.setPower(-0.5);
                     }
                     drive.setDrivePowers( new PoseVelocity2d(
                             new Vector2d(0,
                                     0),
                             0));
-
+                        //turret.setPower(0);
 
                 }
             }
