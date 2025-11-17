@@ -41,7 +41,7 @@ public class strafeTest extends LinearOpMode{
                         .strafeTo(new Vector2d(30, -26))
                                 .build());
 
-        
+
 
 
 //shoot
