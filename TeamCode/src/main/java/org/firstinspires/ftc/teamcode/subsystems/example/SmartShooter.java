@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.subsystems.example;
 
+import com.qualcomm.robotcore.hardware.CRServo;
+import com.qualcomm.robotcore.hardware.CRServoImplEx;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -11,7 +13,7 @@ public class SmartShooter {
     //Example declare a DcMotorEx object as part of this class called 'motorName'
     DcMotorEx motor1;
     //DcMotorEx motor2;
-    Servo elevator;
+    CRServo elevator;
 
     Servo servo3;
 
@@ -21,7 +23,7 @@ public class SmartShooter {
     public SmartShooter(HardwareMap hardwareMap) {
         this.motor1 = hardwareMap.get(DcMotorEx.class, SmartShooterConstants.MOTOR_NAME);
         //this.motor2 = hardwareMap.get(DcMotorEx.class, SmartShooterConstants.MOTOR_NAME2);
-        this.elevator = hardwareMap.get(Servo.class, "elevator");
+        this.elevator = hardwareMap.get(CRServo.class,"elevator");
         this.servo3 = hardwareMap.get(Servo.class, "servo3");
 
         //This defines the behavior at zero power (brake or coast)
@@ -63,7 +65,7 @@ public class SmartShooter {
     public void init() {
         /* Call this method at the start of your opmode logic once to execute any logic you       *
          * want to be called on initialization. If none, leave empty!                             */
-        elevator.setPosition(0);
+        elevator.setPower(0);
     }
 
     public void update() {
@@ -94,12 +96,11 @@ public class SmartShooter {
     }
     //index to shooter function
     public void indexFunction(){
-        //elevator.setDirection(Servo.Direction.FORWARD);
-        elevator.setPosition(0.7);
+        elevator.setPower(-1);
     }
     public void indexFunction2(){
         //elevator.setDirection(Servo.Direction.REVERSE);
-        elevator.setPosition(0);
+        elevator.setPower(0);
     }
     public void hoodAngleNear(){
         servo3.setPosition(0.90);
@@ -111,7 +112,7 @@ public class SmartShooter {
         servo3.setPosition(0);
     }
     public double getElevatorPosition(){
-        return elevator.getPosition();
+        return elevator.getPower();
     }
     public double getVelocity(){
         return motor1.getVelocity();

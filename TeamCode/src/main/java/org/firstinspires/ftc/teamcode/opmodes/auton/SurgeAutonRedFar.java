@@ -97,7 +97,7 @@ public class SurgeAutonRedFar extends LinearOpMode {
                         .turnTo(0.523)
                         .lineToX(-28)
                         .build());
-        //                       intake.setMotorPower(1);
+        //intake.setMotorPower(1);
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
                         .lineToX(22)
