@@ -144,6 +144,12 @@ public class TeleopCommon extends LinearOpMode {
 
                 }
             }
+            if(gamepad2.x){
+                shooter.turretLeft();
+            }
+            if(gamepad2.y){
+                shooter.turretRight();
+            }
             telemetry.update();
         }
     }
