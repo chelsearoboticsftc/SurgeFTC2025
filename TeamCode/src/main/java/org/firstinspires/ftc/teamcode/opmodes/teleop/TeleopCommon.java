@@ -120,7 +120,6 @@ public class TeleopCommon extends LinearOpMode {
                                         0),
 
                                 -0.2));
-                                0.2));
                         //turret.setPower(0.5);
                     }
                     drive.setDrivePowers( new PoseVelocity2d(
@@ -135,12 +134,10 @@ public class TeleopCommon extends LinearOpMode {
                         drive.setDrivePowers( new PoseVelocity2d(
                                 new Vector2d(0,
                                         0),
-<<<<<<< HEAD
+
                                 0.2));
-=======
-                                -0.2));
                         //turret.setPower(-0.5);
->>>>>>> d063fc55df1097d4d62595d56bc905a31037b920
+
                     }
                     drive.setDrivePowers( new PoseVelocity2d(
                             new Vector2d(0,
