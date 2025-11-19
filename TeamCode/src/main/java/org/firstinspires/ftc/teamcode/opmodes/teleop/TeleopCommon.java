@@ -38,11 +38,11 @@ public class TeleopCommon extends LinearOpMode {
 
                     new PoseVelocity2d(
                             new Vector2d(gamepad1.left_stick_y,
-                                    gamepad1.left_stick_x),
-                            -gamepad1.right_stick_x));
+                                    -gamepad1.left_stick_x),
+                            gamepad1.right_stick_x));
 
             if(gamepad2.rightBumperWasPressed()){
-                shooter.setMotorVelocity(4000);
+                shooter.setMotorVelocity(1700);
             telemetry.addData("bumperWasPressed","True");
                 telemetry.update();
             }
@@ -112,12 +112,12 @@ public class TeleopCommon extends LinearOpMode {
 
             if(gamepad1.bWasPressed()){
 
-                if (limelight.getresult().getTx() < 6.5){
-                    while(limelight.getresult().getTx() < 6.5){
+                if (limelight.getresult().getTx() < 4.5){
+                    while(limelight.getresult().getTx() < 4.5){
                         drive.setDrivePowers( new PoseVelocity2d(
                                 new Vector2d(0,
                                         0),
-                                0.2));
+                                -0.2));
                     }
                     drive.setDrivePowers( new PoseVelocity2d(
                             new Vector2d(0,
@@ -126,12 +126,12 @@ public class TeleopCommon extends LinearOpMode {
 
 
                 }
-                else if (limelight.getresult().getTx() > 7.5){
-                    while(limelight.getresult().getTx() > 7.5){
+                else if (limelight.getresult().getTx() > 5.5){
+                    while(limelight.getresult().getTx() > 5.5){
                         drive.setDrivePowers( new PoseVelocity2d(
                                 new Vector2d(0,
                                         0),
-                                -0.2));
+                                0.2));
                     }
                     drive.setDrivePowers( new PoseVelocity2d(
                             new Vector2d(0,
