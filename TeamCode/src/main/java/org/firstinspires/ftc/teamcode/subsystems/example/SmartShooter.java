@@ -1,10 +1,14 @@
 package org.firstinspires.ftc.teamcode.subsystems.example;
 
+<<<<<<< HEAD
 import com.qualcomm.robotcore.hardware.CRServo;
+=======
+>>>>>>> d063fc55df1097d4d62595d56bc905a31037b920
 import com.qualcomm.robotcore.hardware.CRServoImplEx;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.hardware.CRServoImpl;
 
 import org.firstinspires.ftc.teamcode.utils.LookupTable;
 
@@ -16,6 +20,7 @@ public class SmartShooter {
     CRServo elevator;
 
     Servo servo3;
+    CRServoImplEx turret;
 
     //Declare any other global variables for this class here
     private final LookupTable distanceToVelocity = new LookupTable(SmartShooterConstants.LOOKUP_TABLE);
@@ -25,6 +30,7 @@ public class SmartShooter {
         //this.motor2 = hardwareMap.get(DcMotorEx.class, SmartShooterConstants.MOTOR_NAME2);
         this.elevator = hardwareMap.get(CRServo.class,"elevator");
         this.servo3 = hardwareMap.get(Servo.class, "servo3");
+        this.turret = hardwareMap.get(CRServoImplEx.class, "turret");
 
         //This defines the behavior at zero power (brake or coast)
         motor1.setZeroPowerBehavior(SmartShooterConstants.ZERO_POWER_BEHAVIOR);
@@ -42,7 +48,7 @@ public class SmartShooter {
                 SmartShooterConstants.VELOCITY_I, //Integral Gain
                 SmartShooterConstants.VELOCITY_D, //Derivative Gain
                 SmartShooterConstants.VELOCITY_F);//Feed Forward Gain
-        /*motor2.setVelocityPIDFCoefficients(
+        /* motor2.setVelocityPIDFCoefficients(
                 SmartShooterConstants.VELOCITY_P, //Proportional Gain
                 SmartShooterConstants.VELOCITY_I, //Integral Gain
                 SmartShooterConstants.VELOCITY_D, //Derivative Gain
@@ -129,5 +135,11 @@ public class SmartShooter {
 
     public void getMotorVelocity() {
        this.motor1.getVelocity();
+    }
+    public void turretLeft(){
+        turret.setPower(0.4);
+    }
+    public void turretRight(){
+        turret.setPower(-0.4);
     }
 }

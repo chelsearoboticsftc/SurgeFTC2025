@@ -22,6 +22,7 @@ public class TeleopCommon extends LinearOpMode {
 
     int tagID = 20;
     int Aim = 0;
+    CRServoImpl turret;
 
     public void setTagID(int tagID) { this.tagID = tagID; }
     @Override
@@ -117,13 +118,18 @@ public class TeleopCommon extends LinearOpMode {
                         drive.setDrivePowers( new PoseVelocity2d(
                                 new Vector2d(0,
                                         0),
+<<<<<<< HEAD
                                 -0.2));
+=======
+                                0.2));
+                        //turret.setPower(0.5);
+>>>>>>> d063fc55df1097d4d62595d56bc905a31037b920
                     }
                     drive.setDrivePowers( new PoseVelocity2d(
                             new Vector2d(0,
                                     0),
                             0));
-
+                        //turret.setPower(0);
 
                 }
                 else if (limelight.getresult().getTx() > 5.5){
@@ -131,15 +137,26 @@ public class TeleopCommon extends LinearOpMode {
                         drive.setDrivePowers( new PoseVelocity2d(
                                 new Vector2d(0,
                                         0),
+<<<<<<< HEAD
                                 0.2));
+=======
+                                -0.2));
+                        //turret.setPower(-0.5);
+>>>>>>> d063fc55df1097d4d62595d56bc905a31037b920
                     }
                     drive.setDrivePowers( new PoseVelocity2d(
                             new Vector2d(0,
                                     0),
                             0));
-
+                        //turret.setPower(0);
 
                 }
+            }
+            if(gamepad2.x){
+                shooter.turretLeft();
+            }
+            if(gamepad2.y){
+                shooter.turretRight();
             }
             telemetry.update();
         }
