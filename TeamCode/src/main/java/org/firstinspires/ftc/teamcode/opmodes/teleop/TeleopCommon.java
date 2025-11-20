@@ -39,8 +39,8 @@ public class TeleopCommon extends LinearOpMode {
 
                     new PoseVelocity2d(
                             new Vector2d(gamepad1.left_stick_y,
-                                    -gamepad1.left_stick_x),
-                            gamepad1.right_stick_x));
+                                    gamepad1.left_stick_x),
+                            -gamepad1.right_stick_x));
 
             if(gamepad2.rightBumperWasPressed()){
                 shooter.setMotorVelocity(1700);
@@ -119,7 +119,7 @@ public class TeleopCommon extends LinearOpMode {
                                 new Vector2d(0,
                                         0),
 
-                                -0.2));
+                                0.2));
                         //turret.setPower(0.5);
                     }
                     drive.setDrivePowers( new PoseVelocity2d(
@@ -135,7 +135,7 @@ public class TeleopCommon extends LinearOpMode {
                                 new Vector2d(0,
                                         0),
 
-                                0.2));
+                                -0.2));
                         //turret.setPower(-0.5);
 
                     }

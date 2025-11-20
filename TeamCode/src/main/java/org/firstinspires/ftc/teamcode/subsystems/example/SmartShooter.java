@@ -1,9 +1,8 @@
 package org.firstinspires.ftc.teamcode.subsystems.example;
 
-<<<<<<< HEAD
+
 import com.qualcomm.robotcore.hardware.CRServo;
-=======
->>>>>>> d063fc55df1097d4d62595d56bc905a31037b920
+
 import com.qualcomm.robotcore.hardware.CRServoImplEx;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;

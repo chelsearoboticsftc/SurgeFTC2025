@@ -53,7 +53,7 @@ public class SurgeAutonRedFar extends LinearOpMode {
 
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
-<<<<<<< HEAD
+
                         .turnTo(0.523)
                         .lineToX(-28)
                         .build());
@@ -62,11 +62,11 @@ public class SurgeAutonRedFar extends LinearOpMode {
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
                         .lineToX(22)
                         .build());
-=======
-                        .lineToX(20)
-                        .build()
->>>>>>> d063fc55df1097d4d62595d56bc905a31037b920
 
-        );
+
+
+
+
+
     }
 }
