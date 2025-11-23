@@ -16,6 +16,7 @@ public class SmartShooter {
     //Example declare a DcMotorEx object as part of this class called 'motorName'
     DcMotorEx motor1;
     //DcMotorEx motor2;
+    DcMotorEx index;
     CRServo elevator;
 
     Servo servo3;
@@ -30,9 +31,9 @@ public class SmartShooter {
         this.elevator = hardwareMap.get(CRServo.class,"elevator");
         this.servo3 = hardwareMap.get(Servo.class, "servo3");
         this.turret = hardwareMap.get(CRServoImplEx.class, "turret");
-
-        //This defines the behavior at zero power (brake or coast)
+        this.index = hardwareMap.get(DcMotorEx.class,SmartShooterConstants.MOTOR_NAME2);
         motor1.setZeroPowerBehavior(SmartShooterConstants.ZERO_POWER_BEHAVIOR);
+        index.setZeroPowerBehavior(SmartShooterConstants.ZERO_POWER_BEHAVIOR.BRAKE);
         //motor2.setZeroPowerBehavior(SmartShooterConstants.ZERO_POWER_BEHAVIOR);
 
         //This defines the motor direction (forward or reversed)
@@ -140,5 +141,9 @@ public class SmartShooter {
     }
     public void turretRight(){
         turret.setPower(-0.4);
+    }
+    public void setTurretPower(double power){turret.setPower(power);}
+    public void setIndexPower(double power){
+        index.setPower(power);
     }
 }

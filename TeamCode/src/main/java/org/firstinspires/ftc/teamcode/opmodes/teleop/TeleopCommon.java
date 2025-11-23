@@ -5,6 +5,7 @@ import com.acmerobotics.roadrunner.PoseVelocity2d;
 import com.acmerobotics.roadrunner.Vector2d;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.CRServoImpl;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -21,9 +22,10 @@ import org.firstinspires.ftc.teamcode.subsystems.example.limelightVision;
 @TeleOp
 public class TeleopCommon extends LinearOpMode {
 
+
     int tagID = 20;
     int Aim = 0;
-    CRServoImpl turret;
+    CRServo turret ;
 
     public void setTagID(int tagID) {
         this.tagID = tagID;
@@ -36,6 +38,9 @@ public class TeleopCommon extends LinearOpMode {
         Intake intake = new Intake(hardwareMap);
         limelightVision limelight = new limelightVision(hardwareMap);
         Pose2d botpose = limelight.getRobotPos();
+        ElapsedTime myTimer = new ElapsedTime();
+        ElapsedTime shootTimer = new ElapsedTime();
+
         double start;
         double ET;
         waitForStart();
@@ -45,11 +50,11 @@ public class TeleopCommon extends LinearOpMode {
 
                     new PoseVelocity2d(
                             new Vector2d(gamepad1.left_stick_y,
-                                    -gamepad1.left_stick_x),
+                                    gamepad1.left_stick_x),
                             gamepad1.right_stick_x));
 
             if (gamepad2.rightBumperWasPressed()) {
-                shooter.setMotorVelocity(1650);
+                shooter.setMotorVelocity(1000);
                 telemetry.addData("bumperWasPressed", "True");
                 telemetry.update();
             }
@@ -83,16 +88,21 @@ public class TeleopCommon extends LinearOpMode {
                 intake.setMotorPower(0);
             }
             if (gamepad2.bWasPressed()) {
-                shooter.indexFunction();
-                telemetry.addData("bWasPressed", "True");
-                telemetry.update();
+
+                shooter.setIndexPower(1);
             }
 
             if (gamepad2.bWasReleased()) {
-                shooter.indexFunction2();
+                shooter.setIndexPower(0);
 
                 telemetry.addData("bWasPressed", "False");
                 telemetry.update();
+            }
+            if(gamepad2.leftBumperWasPressed()){
+                shooter.shoot(limelight.getresult().getBotposeAvgDist());
+            }
+            if(gamepad2.leftBumperWasReleased()){
+                shooter.setMotorVelocity(1000);
             }
             ;
             telemetry.addData("servoPosition", shooter.getElevatorPosition());
@@ -111,6 +121,7 @@ public class TeleopCommon extends LinearOpMode {
                     telemetry.addData("ty", limelight.getresult().getTy());
                     telemetry.addData("pos", botpose.position);
                     telemetry.addData("heading", botpose.heading);
+                    telemetry.addData("Distance", limelight.getresult().getBotposeAvgDist());
                     telemetry.update();
 
                 }
@@ -118,14 +129,18 @@ public class TeleopCommon extends LinearOpMode {
             }
 
             if (gamepad1.bWasPressed()) {
-                start = getRuntime();
-                ET = 0;
-                while (Math.abs(limelight.getresult().getTx()) > 0.5 && ET < 2) {
-                    turret.setPower(limelight.getresult().getTx() * 0.1);
-                    limelight.getresult().getBotposeAvgDist();
-                    ET = getRuntime() - start;
-                }
-                turret.setPower(0);
+                    myTimer.reset();
+                    start = getRuntime();
+                    //ET = 0;
+                    while (Math.abs(limelight.getresult().getTx()) > 0.5 && myTimer.seconds() < 2) {
+                        shooter.setTurretPower((-(limelight.getresult().getTx()) * 0.1)* 0.5);
+                        limelight.getresult().getBotposeAvgDist();
+                        //ET = getRuntime() - start;
+                    }
+
+            }
+
+
                 if (gamepad1.dpadUpWasPressed())
                     shooter.setMotorVelocity(2500);
 
@@ -139,7 +154,7 @@ public class TeleopCommon extends LinearOpMode {
                     shooter.setMotorVelocity(1000);
 
 
-            }
+
         }
     }
 }

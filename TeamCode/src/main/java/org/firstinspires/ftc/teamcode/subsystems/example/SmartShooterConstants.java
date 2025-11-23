@@ -11,7 +11,7 @@ import java.util.List;
 public class SmartShooterConstants {
     // Note - any changes to these constants will require recalibration!
     public static final String MOTOR_NAME = "motor1";
-    public static final String MOTOR_NAME2 = "shooter2";
+    public static final String MOTOR_NAME2 = "index";
     public static final DcMotor.ZeroPowerBehavior ZERO_POWER_BEHAVIOR = DcMotor.ZeroPowerBehavior.BRAKE;
     public static final DcMotorSimple.Direction MOTOR_DIRECTION = DcMotorSimple.Direction.REVERSE;
     public static final double VELOCITY_P = 1.0;
@@ -29,9 +29,8 @@ public class SmartShooterConstants {
         // - Distances should be in the same units used for measuring the distance between
         // the robot and the goal
         // - Velocities should be in encoder ticks per second
-        new Pair(0, 0),
-        new Pair(1, 10),
-        new Pair(2, 20),
-        new Pair(5, 100)
+        new Pair(1.067, 1650),
+        new Pair(2.032, 1850),
+        new Pair(3.378, 2650)
     );
 }
