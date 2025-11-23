@@ -8,6 +8,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServoImpl;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooter;
 import org.firstinspires.ftc.teamcode.MecanumDrive;
@@ -24,27 +25,32 @@ public class TeleopCommon extends LinearOpMode {
     int Aim = 0;
     CRServoImpl turret;
 
-    public void setTagID(int tagID) { this.tagID = tagID; }
+    public void setTagID(int tagID) {
+        this.tagID = tagID;
+    }
+
     @Override
     public void runOpMode() throws InterruptedException {
-        MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0,0,0));
+        MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(0, 0, 0));
         SmartShooter shooter = new SmartShooter(hardwareMap);
         Intake intake = new Intake(hardwareMap);
         limelightVision limelight = new limelightVision(hardwareMap);
         Pose2d botpose = limelight.getRobotPos();
+        double start;
+        double ET;
         waitForStart();
 
-        while(opModeIsActive()) {
+        while (opModeIsActive()) {
             drive.setDrivePowers(
 
                     new PoseVelocity2d(
                             new Vector2d(gamepad1.left_stick_y,
-                                    gamepad1.left_stick_x),
-                            -gamepad1.right_stick_x));
+                                    -gamepad1.left_stick_x),
+                            gamepad1.right_stick_x));
 
-            if(gamepad2.rightBumperWasPressed()){
-                shooter.setMotorVelocity(1700);
-            telemetry.addData("bumperWasPressed","True");
+            if (gamepad2.rightBumperWasPressed()) {
+                shooter.setMotorVelocity(1650);
+                telemetry.addData("bumperWasPressed", "True");
                 telemetry.update();
             }
 //            if(gamepad2.x){
@@ -58,9 +64,9 @@ public class TeleopCommon extends LinearOpMode {
             //    shooter.setMotorVelocity(0);
             //}
             //intake.setMotorPower(gamepad1.left_trigger);
-            if(gamepad1.left_bumper){
+            if (gamepad1.left_bumper) {
                 intake.setMotorPower(-1.0);
-                telemetry.addData("Intake Speed",intake.getMotorPower());
+                telemetry.addData("Intake Speed", intake.getMotorPower());
                 telemetry.update();
             }
             /*if(!gamepad1.left_bumper){
@@ -69,26 +75,26 @@ public class TeleopCommon extends LinearOpMode {
                 telemetry.update();
             }*/
             //intake.setMotorPower(-gamepad1.right_trigger);
-            else if(gamepad1.right_bumper){
+            else if (gamepad1.right_bumper) {
                 intake.setMotorPower(0.5);
-                telemetry.addData("Intake Speed",intake.getMotorPower());
+                telemetry.addData("Intake Speed", intake.getMotorPower());
                 telemetry.update();
-            }
-            else{
+            } else {
                 intake.setMotorPower(0);
             }
-            if(gamepad2.bWasPressed()){
+            if (gamepad2.bWasPressed()) {
                 shooter.indexFunction();
-                telemetry.addData("bWasPressed","True");
+                telemetry.addData("bWasPressed", "True");
                 telemetry.update();
             }
 
-            if(gamepad2.bWasReleased()){
+            if (gamepad2.bWasReleased()) {
                 shooter.indexFunction2();
 
-                telemetry.addData("bWasPressed","False");
+                telemetry.addData("bWasPressed", "False");
                 telemetry.update();
-            };
+            }
+            ;
             telemetry.addData("servoPosition", shooter.getElevatorPosition());
 
 
@@ -96,67 +102,83 @@ public class TeleopCommon extends LinearOpMode {
 
 
             telemetry.addData("Velocity", shooter.getVelocity());
-            if(limelight.getresult() != null){
-                if(limelight.getresult().isValid()){
+            if (limelight.getresult() != null) {
+                if (limelight.getresult().isValid()) {
 
 
                     telemetry.addData("Pose2d that the limelight gives", botpose);
-                    telemetry.addData("tx",limelight.getresult().getTx());
+                    telemetry.addData("tx", limelight.getresult().getTx());
                     telemetry.addData("ty", limelight.getresult().getTy());
-                    telemetry.addData("pos",botpose.position);
-                    telemetry.addData("heading",botpose.heading);
+                    telemetry.addData("pos", botpose.position);
+                    telemetry.addData("heading", botpose.heading);
                     telemetry.update();
 
                 }
 
             }
 
-            if(gamepad1.bWasPressed()){
-
-                if (limelight.getresult().getTx() < 4.5){
-                    while(limelight.getresult().getTx() < 4.5){
-                        drive.setDrivePowers( new PoseVelocity2d(
-                                new Vector2d(0,
-                                        0),
-
-                                0.2));
-                        //turret.setPower(0.5);
-                    }
-                    drive.setDrivePowers( new PoseVelocity2d(
-                            new Vector2d(0,
-                                    0),
-                            0));
-                        //turret.setPower(0);
-
+            if (gamepad1.bWasPressed()) {
+                start = getRuntime();
+                ET = 0;
+                while (Math.abs(limelight.getresult().getTx()) > 0.5 && ET < 2) {
+                    turret.setPower(limelight.getresult().getTx() * 0.1);
+                    limelight.getresult().getBotposeAvgDist();
+                    ET = getRuntime() - start;
                 }
-                else if (limelight.getresult().getTx() > 5.5){
-                    while(limelight.getresult().getTx() > 5.5){
-                        drive.setDrivePowers( new PoseVelocity2d(
-                                new Vector2d(0,
-                                        0),
+                turret.setPower(0);
+                if (gamepad1.dpadUpWasPressed())
+                    shooter.setMotorVelocity(2500);
 
-                                -0.2));
-                        //turret.setPower(-0.5);
+                if (gamepad1.dpadRightWasPressed())
+                    shooter.setMotorVelocity(2000);
 
-                    }
-                    drive.setDrivePowers( new PoseVelocity2d(
-                            new Vector2d(0,
-                                    0),
-                            0));
-                        //turret.setPower(0);
+                if (gamepad1.dpadDownWasPressed())
+                    shooter.setMotorVelocity(1500);
 
-                }
+                if (gamepad1.dpadLeftWasPressed())
+                    shooter.setMotorVelocity(1000);
+
+
             }
-            if(gamepad2.x){
-                shooter.turretLeft();
-            }
-            if(gamepad2.y){
-                shooter.turretRight();
-            }
-            telemetry.update();
         }
     }
 }
+
+//                if (limelight.getresult().getTx() < -0.5){
+//                    while(limelight.getresult().getTx() < -0.5){
+//                        drive.setDrivePowers( new PoseVelocity2d(
+//
+//                        turret.setPower(0.5);
+//                    }
+//                    drive.setDrivePowers( new PoseVelocity2d(
+//
+//                    turret.setPower(0);
+//
+//                }
+//                else if (limelight.getresult().getTx() > 0.5){
+//                    while(limelight.getresult().getTx() > 0.5){
+//                        drive.setDrivePowers( new PoseVelocity2d(
+//
+//                        turret.setPower(-0.5)
+//                        }
+//
+//                    }
+//                    drive.setDrivePowers( new PoseVelocity2d(
+//
+//                        turret.setPower(0);
+//
+//                }
+//            }
+//            if(gamepad2.x){
+//                shooter.turretLeft();
+//            }
+//            if(gamepad2.y){
+//                shooter.turretRight();
+//            }
+//            telemetry.update();
+//        }
+//    }
+//}
 
 
 
