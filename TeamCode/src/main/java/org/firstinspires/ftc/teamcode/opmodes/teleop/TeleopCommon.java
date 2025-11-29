@@ -26,7 +26,7 @@ public class TeleopCommon extends LinearOpMode {
     int tagID = 20;
     int Aim = 0;
     CRServo turret ;
-
+    double error;
     public void setTagID(int tagID) {
         this.tagID = tagID;
     }
@@ -89,7 +89,7 @@ public class TeleopCommon extends LinearOpMode {
             }
             if (gamepad2.bWasPressed()) {
 
-                shooter.setIndexPower(1);
+                shooter.setIndexPower(.75);
             }
 
             if (gamepad2.bWasReleased()) {
@@ -98,10 +98,10 @@ public class TeleopCommon extends LinearOpMode {
                 telemetry.addData("bWasPressed", "False");
                 telemetry.update();
             }
-            if(gamepad2.leftBumperWasPressed()){
+            if (gamepad2.leftBumperWasPressed()) {
                 shooter.shoot(limelight.getresult().getBotposeAvgDist());
             }
-            if(gamepad2.leftBumperWasReleased()){
+            if (gamepad2.leftBumperWasReleased()) {
                 shooter.setMotorVelocity(1000);
             }
             ;
@@ -128,17 +128,58 @@ public class TeleopCommon extends LinearOpMode {
 
             }
 
+//            if (gamepad1.bWasPressed()) {
+//                if (limelight.getresult().getTx() < -0.5){
+//                    while(limelight.getresult().getTx() < -0.5){
+//
+//                        shooter.setTurretPower(0.5);
+//
+//
+//                    shooter.setTurretPower(0);
+//
+//                }}
+//                else if (limelight.getresult().getTx() > 0.5){
+//                    while(limelight.getresult().getTx() > 0.5){
+//
+//                        shooter.setTurretPower(-0.5);
+//                        }
+//
+//                    }
+//
+//                        shooter.setTurretPower(0);
+//
+//                }
+//            }
+//            if(gamepad2.x){
+//                shooter.turretLeft();
+//            }
+//            if(gamepad2.y){
+//                shooter.turretRight();
+//            }
+//            telemetry.update();
+//        }
+//   }
+
             if (gamepad1.bWasPressed()) {
-                    myTimer.reset();
-                    start = getRuntime();
-                    //ET = 0;
-                    while (Math.abs(limelight.getresult().getTx()) > 0.5 && myTimer.seconds() < 2) {
-                        shooter.setTurretPower((-(limelight.getresult().getTx()) * 0.1)* 0.5);
-                        limelight.getresult().getBotposeAvgDist();
-                        //ET = getRuntime() - start;
-                    }
+
+                myTimer.reset();
+                start = getRuntime();
+
+                //ET = 0;
+
+                while (Math.abs(limelight.getresult().getTx()) > 2 && myTimer.seconds() < 2) {
+                    error = limelight.getresult().getTx();
+                    shooter.setTurretPower(-Math.signum(error)*Math.max(Math.abs(error * 0.008),0.07));
+                    limelight.getresult().getBotposeAvgDist();
+                    //ET = getRuntime() - start
+                    myTimer.seconds();
+
+                    telemetry.addData("turning",limelight.getresult().getTx());
+                }
+                shooter.setTurretPower(0);
 
             }
+        }
 
 
                 if (gamepad1.dpadUpWasPressed())
@@ -157,7 +198,7 @@ public class TeleopCommon extends LinearOpMode {
 
         }
     }
-}
+
 
 //                if (limelight.getresult().getTx() < -0.5){
 //                    while(limelight.getresult().getTx() < -0.5){

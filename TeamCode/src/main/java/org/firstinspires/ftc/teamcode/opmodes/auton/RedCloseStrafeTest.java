@@ -1,4 +1,5 @@
 
+
 package org.firstinspires.ftc.teamcode.opmodes.auton;
 
 import com.acmerobotics.roadrunner.Vector2d;
@@ -16,7 +17,7 @@ import org.firstinspires.ftc.teamcode.subsystems.example.limelightVision;
 
 
 @Autonomous
-public class strafeTestFar extends LinearOpMode{
+public class RedCloseStrafeTest extends LinearOpMode{
     int tagID = 20;
     int Aim = 0;
     CRServo turret ;
@@ -74,6 +75,52 @@ public class strafeTestFar extends LinearOpMode{
         Thread.sleep(500);
         intake.setMotorPower(-1);
         Thread.sleep(3000);
+        if(isStopRequested())return;
+
+        myTimer.reset();
+        start = getRuntime();
+
+        //ET = 0;
+
+        while (Math.abs(limelight.getresult().getTx()) > 2 && myTimer.seconds() < 2) {
+            error = limelight.getresult().getTx();
+            shooter.setTurretPower(-Math.signum(error)*Math.max(Math.abs(error * 0.008),0.07));
+            limelight.getresult().getBotposeAvgDist();
+            //ET = getRuntime() - start
+            myTimer.seconds();
+
+            telemetry.addData("turning",limelight.getresult().getTx());
+        }
+        shooter.setTurretPower(0);
+        shooter.shoot(limelight.getresult().getBotposeAvgDist());
+        Thread.sleep(2000);
+        shooter.setIndexPower(0.75);
+        Thread.sleep(500);
+        intake.setMotorPower(-1);
+        Thread.sleep(3000);
+        if(isStopRequested())return;
+
+        myTimer.reset();
+        start = getRuntime();
+
+        //ET = 0;
+
+        while (Math.abs(limelight.getresult().getTx()) > 2 && myTimer.seconds() < 2) {
+            error = limelight.getresult().getTx();
+            shooter.setTurretPower(-Math.signum(error)*Math.max(Math.abs(error * 0.008),0.07));
+            limelight.getresult().getBotposeAvgDist();
+            //ET = getRuntime() - start
+            myTimer.seconds();
+
+            telemetry.addData("turning",limelight.getresult().getTx());
+        }
+        shooter.setTurretPower(0);
+        shooter.shoot(limelight.getresult().getBotposeAvgDist());
+        Thread.sleep(2000);
+        shooter.setIndexPower(0.75);
+        Thread.sleep(500);
+        intake.setMotorPower(-1);
+        Thread.sleep(3000);
 
         shooter.setMotorVelocity(0);
         intake.setMotorPower(0);
@@ -83,7 +130,7 @@ public class strafeTestFar extends LinearOpMode{
 
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
-                        .strafeTo(new Vector2d(34, -22))
+                        .strafeTo(new Vector2d(-34, -22))
                         .build());
 
         Actions.runBlocking(
@@ -96,7 +143,7 @@ public class strafeTestFar extends LinearOpMode{
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
                         .lineToX(30)
-                        .strafeTo(new Vector2d(30, 22))
+                        .strafeTo(new Vector2d(-30, 22))
                         .build());
 
         Thread.sleep(3000);

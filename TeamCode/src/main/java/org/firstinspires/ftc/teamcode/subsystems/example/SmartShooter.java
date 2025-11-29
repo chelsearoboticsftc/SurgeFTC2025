@@ -20,7 +20,7 @@ public class SmartShooter {
     CRServo elevator;
 
     Servo servo3;
-    CRServoImplEx turret;
+    CRServo turret;
 
     //Declare any other global variables for this class here
     private final LookupTable distanceToVelocity = new LookupTable(SmartShooterConstants.LOOKUP_TABLE);

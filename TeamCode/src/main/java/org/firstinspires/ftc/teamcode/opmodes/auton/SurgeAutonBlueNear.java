@@ -5,6 +5,7 @@ import com.acmerobotics.roadrunner.PoseVelocity2d;
 import com.acmerobotics.roadrunner.Vector2d;
 import com.acmerobotics.roadrunner.ftc.Actions;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.MecanumDrive;
@@ -14,6 +15,7 @@ import org.firstinspires.ftc.teamcode.subsystems.example.SmartShooter;
 import org.firstinspires.ftc.teamcode.subsystems.example.limelightVision;
 
 @Autonomous
+@Disabled
 public class SurgeAutonBlueNear extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
