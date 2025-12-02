@@ -31,6 +31,7 @@ public class SmartShooterConstants {
         // - Velocities should be in encoder ticks per second
         new Pair(1.067, 1650),
         new Pair(2.032, 1850),
-        new Pair(3.378, 2650)
+        new Pair(3.3, 2400),
+            new Pair(3.1,2300 )
     );
 }

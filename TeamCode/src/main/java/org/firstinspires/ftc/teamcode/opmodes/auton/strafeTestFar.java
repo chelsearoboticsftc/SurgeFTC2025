@@ -40,17 +40,6 @@ public class strafeTestFar extends LinearOpMode{
         if (isStopRequested()) return;
 
 
-
-        Actions.runBlocking(
-                drive.actionBuilder(new Pose2d(  0,  0, 0))
-                        .lineToX(30)
-                        .build());
-
-
-
-
-
-
         //shoot
 
         myTimer.reset();
@@ -74,35 +63,56 @@ public class strafeTestFar extends LinearOpMode{
         Thread.sleep(500);
         intake.setMotorPower(-1);
         Thread.sleep(3000);
+        shooter.setTurretPower(0);
+        Thread.sleep(2000);
+        shooter.setIndexPower(0.75);
+        Thread.sleep(500);
+        intake.setMotorPower(-1);
+        Thread.sleep(3000);
+        shooter.setTurretPower(0);
+        Thread.sleep(2000);
+        shooter.setIndexPower(0.75);
+        Thread.sleep(500);
+        intake.setMotorPower(-1);
+        Thread.sleep(3000);
 
         shooter.setMotorVelocity(0);
         intake.setMotorPower(0);
         shooter.setIndexPower(0);
 
 
+        Actions.runBlocking(
+                drive.actionBuilder(new Pose2d(  0,  0, 0))
+                        .strafeTo(new Vector2d(0, 26))
+                        .build());
+
+        Thread.sleep(1000);
+
+        intake.setMotorPower(1);
 
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
-                        .strafeTo(new Vector2d(34, -22))
+                        .lineToX(33)
                         .build());
+
+                intake.setMotorPower(0);
+
+                Thread.sleep(1000);
 
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
-                        .lineToX(-30)
+                        .lineToX(-33)
                         .build());
 
-        Thread.sleep(5000);
+        Thread.sleep(1000);
+
 
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
-                        .lineToX(30)
-                        .strafeTo(new Vector2d(30, 22))
+                        .strafeTo(new Vector2d(0, -26))
                         .build());
 
-        Thread.sleep(3000);
-
-
-        myTimer.reset();
+                myTimer.reset();
         start = getRuntime();
 
         //ET = 0;
@@ -118,6 +128,18 @@ public class strafeTestFar extends LinearOpMode{
         }
         shooter.setTurretPower(0);
         shooter.shoot(limelight.getresult().getBotposeAvgDist());
+        Thread.sleep(2000);
+        shooter.setIndexPower(0.75);
+        Thread.sleep(500);
+        intake.setMotorPower(-1);
+        Thread.sleep(3000);
+        shooter.setTurretPower(0);
+        Thread.sleep(2000);
+        shooter.setIndexPower(0.75);
+        Thread.sleep(500);
+        intake.setMotorPower(-1);
+        Thread.sleep(3000);
+        shooter.setTurretPower(0);
         Thread.sleep(2000);
         shooter.setIndexPower(0.75);
         Thread.sleep(500);

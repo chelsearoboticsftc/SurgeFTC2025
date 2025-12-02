@@ -41,6 +41,10 @@ public class strafeTest2 extends LinearOpMode{
         waitForStart();
         if (isStopRequested()) return;
         Actions.runBlocking(
+
+
+
+
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
                         .lineToX(-34)
                         .strafeTo(new Vector2d(-30, -22))
@@ -155,21 +159,6 @@ public class strafeTest2 extends LinearOpMode{
         intake.setMotorPower(1);
         shooter.setIndexPower(0.75);
 
-
-
-//        Actions.runBlocking(
-//                drive.actionBuilder(new Pose2d(  0,  0, 0))
-//
-//                                .build());
-
-
-        //shoot
-
-//        Thread.sleep(3000);
-//        Actions.runBlocking(
-//                drive.actionBuilder(new Pose2d(  0,  0, 0))
-//                        .strafeTo(new Vector2d(30, -42))
-//                        .build());
 
 
 

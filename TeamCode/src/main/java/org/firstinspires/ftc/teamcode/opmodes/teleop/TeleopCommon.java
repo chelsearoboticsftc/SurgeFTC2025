@@ -40,6 +40,7 @@ public class TeleopCommon extends LinearOpMode {
         Pose2d botpose = limelight.getRobotPos();
         ElapsedTime myTimer = new ElapsedTime();
         ElapsedTime shootTimer = new ElapsedTime();
+        double Velo = 2600;
 
         double start;
         double ET;
@@ -49,12 +50,12 @@ public class TeleopCommon extends LinearOpMode {
             drive.setDrivePowers(
 
                     new PoseVelocity2d(
-                            new Vector2d(gamepad1.left_stick_y,
-                                    gamepad1.left_stick_x),
-                            gamepad1.right_stick_x));
+                            new Vector2d(-gamepad1.left_stick_y,
+                                    -gamepad1.left_stick_x),
+                            -gamepad1.right_stick_x));
 
             if (gamepad2.rightBumperWasPressed()) {
-                shooter.setMotorVelocity(1000);
+                shooter.setMotorVelocity(1800);
                 telemetry.addData("bumperWasPressed", "True");
                 telemetry.update();
             }
@@ -98,12 +99,11 @@ public class TeleopCommon extends LinearOpMode {
                 telemetry.addData("bWasPressed", "False");
                 telemetry.update();
             }
-            if (gamepad2.leftBumperWasPressed()) {
+            if (gamepad2.left_bumper) {
                 shooter.shoot(limelight.getresult().getBotposeAvgDist());
-            }
-            if (gamepad2.leftBumperWasReleased()) {
-                shooter.setMotorVelocity(1000);
-            }
+            } else {shooter.setMotorVelocity(1000);}
+
+
             ;
             telemetry.addData("servoPosition", shooter.getElevatorPosition());
 
@@ -181,18 +181,16 @@ public class TeleopCommon extends LinearOpMode {
             }
         }
 
+//        shooter.setMotorVelocity(Velo);
+//        if(gamepad2.dpadUpWasPressed()){
+//            Velo += 50;
+//            Thread.sleep(500);
+//        }
+//        if(gamepad2.dpadDownWasPressed()){
+//            Velo -= 50;
+//            Thread.sleep(500);
+//        }
 
-                if (gamepad1.dpadUpWasPressed())
-                    shooter.setMotorVelocity(2500);
-
-                if (gamepad1.dpadRightWasPressed())
-                    shooter.setMotorVelocity(2000);
-
-                if (gamepad1.dpadDownWasPressed())
-                    shooter.setMotorVelocity(1500);
-
-                if (gamepad1.dpadLeftWasPressed())
-                    shooter.setMotorVelocity(1000);
 
 
 
