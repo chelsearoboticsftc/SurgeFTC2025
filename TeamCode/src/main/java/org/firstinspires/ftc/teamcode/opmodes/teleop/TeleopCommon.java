@@ -58,6 +58,13 @@ public class TeleopCommon extends LinearOpMode {
                 shooter.setMotorVelocity(1800);
                 telemetry.addData("bumperWasPressed", "True");
                 telemetry.update();
+
+                if(gamepad2.right_trigger >= 0.75){
+                    shooter.setTurretPower(-0.2);
+                }
+                if(gamepad2.left_trigger >= 0.75){
+                    shooter.setTurretPower(0.2);
+                }
             }
             if(gamepad2.right_trigger >= 0.75){
                 shooter.setTurretPower(-0.2);
@@ -175,7 +182,7 @@ public class TeleopCommon extends LinearOpMode {
 
                 while (Math.abs(limelight.getresult().getTx()) > 2 && myTimer.seconds() < 2) {
                     error = limelight.getresult().getTx();
-                    shooter.setTurretPower(-Math.signum(error)*Math.max(Math.abs(error * 0.008),0.07));
+                    shooter.setTurretPower(-Math.signum(error)*Math.max(Math.abs(error * 0.006),0.09));
                     limelight.getresult().getBotposeAvgDist();
                     //ET = getRuntime() - start
                     myTimer.seconds();
