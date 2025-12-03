@@ -62,19 +62,13 @@ public class RedFarStrafeTest extends LinearOpMode{
         shooter.setIndexPower(0.75);
         Thread.sleep(500);
         intake.setMotorPower(-1);
-        Thread.sleep(3000);
-        shooter.setTurretPower(0);
-        Thread.sleep(2000);
-        shooter.setIndexPower(0.75);
         Thread.sleep(500);
-        intake.setMotorPower(-1);
-        Thread.sleep(3000);
-        shooter.setTurretPower(0);
-        Thread.sleep(2000);
-        shooter.setIndexPower(0.75);
+        shooter.setIndexPower(0);
         Thread.sleep(500);
-        intake.setMotorPower(-1);
-        Thread.sleep(3000);
+        shooter.setIndexPower(0.75);
+        Thread.sleep(1500);
+        shooter.setIndexPower(0);
+
 
         shooter.setMotorVelocity(0);
         intake.setMotorPower(0);
@@ -100,15 +94,15 @@ public class RedFarStrafeTest extends LinearOpMode{
                 Thread.sleep(1000);
 
         Actions.runBlocking(
-                drive.actionBuilder(new Pose2d(  0,  0, 0))
-                        .lineToX(-33)
+                drive.actionBuilder(new Pose2d(  33,  26, 0))
+                        .lineToX(0)
                         .build());
 
         Thread.sleep(1000);
 
 
         Actions.runBlocking(
-                drive.actionBuilder(new Pose2d(  0,  0, 0))
+                drive.actionBuilder(new Pose2d(  0,  26, 0))
                         .strafeTo(new Vector2d(0, -26))
                         .build());
 
@@ -132,19 +126,13 @@ public class RedFarStrafeTest extends LinearOpMode{
         shooter.setIndexPower(0.75);
         Thread.sleep(500);
         intake.setMotorPower(-1);
-        Thread.sleep(3000);
-        shooter.setTurretPower(0);
-        Thread.sleep(2000);
-        shooter.setIndexPower(0.75);
         Thread.sleep(500);
-        intake.setMotorPower(-1);
-        Thread.sleep(3000);
-        shooter.setTurretPower(0);
-        Thread.sleep(2000);
-        shooter.setIndexPower(0.75);
+        shooter.setIndexPower(0);
         Thread.sleep(500);
-        intake.setMotorPower(-1);
-        Thread.sleep(3000);
+        shooter.setIndexPower(0.75);
+        Thread.sleep(1500);
+        shooter.setIndexPower(0);
+
 
         shooter.setMotorVelocity(0);
         intake.setMotorPower(0);

@@ -70,19 +70,13 @@ public class RedCloseStrafeTest extends LinearOpMode{
         shooter.setIndexPower(0.75);
         Thread.sleep(500);
         intake.setMotorPower(-1);
-        Thread.sleep(3000);
-        shooter.setTurretPower(0);
-        Thread.sleep(2000);
-        shooter.setIndexPower(0.75);
         Thread.sleep(500);
-        intake.setMotorPower(-1);
-        Thread.sleep(3000);
-        shooter.setTurretPower(0);
-        Thread.sleep(2000);
-        shooter.setIndexPower(0.75);
+        shooter.setIndexPower(0);
         Thread.sleep(500);
-        intake.setMotorPower(-1);
-        Thread.sleep(3000);
+        shooter.setIndexPower(0.75);
+        Thread.sleep(1500);
+        shooter.setIndexPower(0);
+
 
         shooter.setMotorVelocity(0);
         intake.setMotorPower(0);

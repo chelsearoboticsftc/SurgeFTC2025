@@ -38,9 +38,6 @@ public class BlueFarStrafeTest extends LinearOpMode{
         if (isStopRequested()) return;
 
         //shoot
-
-        if(isStopRequested())return;
-
         myTimer.reset();
         start = getRuntime();
 
@@ -55,59 +52,20 @@ public class BlueFarStrafeTest extends LinearOpMode{
 
             telemetry.addData("turning",limelight.getresult().getTx());
         }
+
         shooter.setTurretPower(0);
         shooter.shoot(limelight.getresult().getBotposeAvgDist());
         Thread.sleep(2000);
         shooter.setIndexPower(0.75);
         Thread.sleep(500);
         intake.setMotorPower(-1);
-        Thread.sleep(3000);
-        if(isStopRequested())return;
-
-        myTimer.reset();
-        start = getRuntime();
-
-        //ET = 0;
-
-        while (Math.abs(limelight.getresult().getTx()) > 2 && myTimer.seconds() < 2) {
-            error = limelight.getresult().getTx();
-            shooter.setTurretPower(-Math.signum(error)*Math.max(Math.abs(error * 0.008),0.07));
-            limelight.getresult().getBotposeAvgDist();
-            //ET = getRuntime() - start
-            myTimer.seconds();
-
-            telemetry.addData("turning",limelight.getresult().getTx());
-        }
-        shooter.setTurretPower(0);
-        shooter.shoot(limelight.getresult().getBotposeAvgDist());
-        Thread.sleep(2000);
-        shooter.setIndexPower(0.75);
         Thread.sleep(500);
-        intake.setMotorPower(-1);
-        Thread.sleep(3000);
-        if(isStopRequested())return;
-
-        myTimer.reset();
-        start = getRuntime();
-
-        //ET = 0;
-
-        while (Math.abs(limelight.getresult().getTx()) > 2 && myTimer.seconds() < 2) {
-            error = limelight.getresult().getTx();
-            shooter.setTurretPower(-Math.signum(error)*Math.max(Math.abs(error * 0.008),0.07));
-            limelight.getresult().getBotposeAvgDist();
-            //ET = getRuntime() - start
-            myTimer.seconds();
-
-            telemetry.addData("turning",limelight.getresult().getTx());
-        }
-        shooter.setTurretPower(0);
-        shooter.shoot(limelight.getresult().getBotposeAvgDist());
-        Thread.sleep(2000);
-        shooter.setIndexPower(0.75);
+        shooter.setIndexPower(0);
         Thread.sleep(500);
-        intake.setMotorPower(-1);
-        Thread.sleep(3000);
+        shooter.setIndexPower(0.75);
+        Thread.sleep(1500);
+        shooter.setIndexPower(0);
+
 
         shooter.setMotorVelocity(0);
         intake.setMotorPower(0);

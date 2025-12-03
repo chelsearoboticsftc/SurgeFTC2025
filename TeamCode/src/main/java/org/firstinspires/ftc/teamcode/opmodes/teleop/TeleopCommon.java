@@ -60,17 +60,13 @@ public class TeleopCommon extends LinearOpMode {
                 telemetry.update();
 
                 if(gamepad2.right_trigger >= 0.75){
-                    shooter.setTurretPower(-0.2);
+                    shooter.setTurretPower(-0.1);
                 }
-                if(gamepad2.left_trigger >= 0.75){
-                    shooter.setTurretPower(0.2);
-                }
-            }
-            if(gamepad2.right_trigger >= 0.75){
-                shooter.setTurretPower(-0.2);
-            }
-            if(gamepad2.left_trigger>= 0.75){
-                shooter.setTurretPower(0.2);
+                else if(gamepad2.left_trigger >= 0.75){
+                    shooter.setTurretPower(0.1);
+                }else shooter.setTurretPower(0);
+
+
             }
 //
 //                shooter.hoodAngleNear();
@@ -115,6 +111,9 @@ public class TeleopCommon extends LinearOpMode {
             if (gamepad2.left_bumper) {
                 shooter.shoot(limelight.getresult().getBotposeAvgDist());
             } else {shooter.setMotorVelocity(1000);}
+
+            if (gamepad1.xWasPressed())
+                shooter.setTurretPower(0.1);
 
 
             ;

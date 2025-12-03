@@ -67,9 +67,16 @@ public class BlueCloseStrafeTest extends LinearOpMode{
         }
         shooter.setTurretPower(0);
         shooter.shoot(limelight.getresult().getBotposeAvgDist());
-        intake.setMotorPower(1);
+        Thread.sleep(2000);
         shooter.setIndexPower(0.75);
-        Thread.sleep(3000);
+        Thread.sleep(500);
+        intake.setMotorPower(-1);
+        Thread.sleep(500);
+        shooter.setIndexPower(0);
+        Thread.sleep(500);
+        shooter.setIndexPower(0.75);
+        Thread.sleep(1500);
+        shooter.setIndexPower(0);
 
 
 
