@@ -59,7 +59,13 @@ public class TeleopCommon extends LinearOpMode {
                 telemetry.addData("bumperWasPressed", "True");
                 telemetry.update();
             }
-//            if(gamepad2.x){
+            if(gamepad2.right_trigger >= 0.75){
+                shooter.setTurretPower(-0.2);
+            }
+            if(gamepad2.left_trigger>= 0.75){
+                shooter.setTurretPower(0.2);
+            }
+//
 //                shooter.hoodAngleNear();
 //
 //            }
