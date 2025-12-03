@@ -169,7 +169,7 @@ public class TeleopCommon extends LinearOpMode {
 
                 while (Math.abs(limelight.getresult().getTx()) > 2 && myTimer.seconds() < 2) {
                     error = limelight.getresult().getTx();
-                    shooter.setTurretPower(-Math.signum(error)*Math.max(Math.abs(error * 0.008),0.07));
+                    shooter.setTurretPower(-Math.signum(error)*Math.max(Math.abs(error * 0.006),0.09));
                     limelight.getresult().getBotposeAvgDist();
                     //ET = getRuntime() - start
                     myTimer.seconds();

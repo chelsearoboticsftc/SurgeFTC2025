@@ -17,7 +17,7 @@ import org.firstinspires.ftc.teamcode.subsystems.example.limelightVision;
 
 
 @Autonomous
-public class RedCloseStrafeTest extends LinearOpMode{
+public class BlueCloseStrafeTest extends LinearOpMode{
     int tagID = 20;
     int Aim = 0;
     CRServo turret ;
@@ -46,6 +46,7 @@ public class RedCloseStrafeTest extends LinearOpMode{
 
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
                         .lineToX(-34)
+                        .strafeTo(new Vector2d(-30, -22))
                         .build());
 
         //shoot
@@ -66,41 +67,13 @@ public class RedCloseStrafeTest extends LinearOpMode{
         }
         shooter.setTurretPower(0);
         shooter.shoot(limelight.getresult().getBotposeAvgDist());
-        Thread.sleep(2000);
+        intake.setMotorPower(1);
         shooter.setIndexPower(0.75);
-        Thread.sleep(500);
-        intake.setMotorPower(-1);
-        Thread.sleep(3000);
-        shooter.setTurretPower(0);
-        Thread.sleep(2000);
-        shooter.setIndexPower(0.75);
-        Thread.sleep(500);
-        intake.setMotorPower(-1);
-        Thread.sleep(3000);
-        shooter.setTurretPower(0);
-        Thread.sleep(2000);
-        shooter.setIndexPower(0.75);
-        Thread.sleep(500);
-        intake.setMotorPower(-1);
         Thread.sleep(3000);
 
-        shooter.setMotorVelocity(0);
-        intake.setMotorPower(0);
-        shooter.setIndexPower(0);
 
 
 
-Actions.runBlocking(
-        drive.actionBuilder(new Pose2d(  0,  0, 0))
-                .strafeTo(new Vector2d(-34, -33))
-                .build());
-
-intake.setMotorPower(1);
-
-Actions.runBlocking(
-        drive.actionBuilder(new Pose2d(  0,  0, 0))
-                .lineToX(34)
-                .build());
 
 
 
@@ -111,5 +84,5 @@ Actions.runBlocking(
 
 
 
-}
+    }
 

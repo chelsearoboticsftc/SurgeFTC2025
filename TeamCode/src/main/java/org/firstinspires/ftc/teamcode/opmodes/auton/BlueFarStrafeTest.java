@@ -1,6 +1,5 @@
 package org.firstinspires.ftc.teamcode.opmodes.auton;
 
-import com.acmerobotics.roadrunner.Vector2d;
 import com.acmerobotics.roadrunner.ftc.Actions;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -15,7 +14,7 @@ import org.firstinspires.ftc.teamcode.subsystems.example.limelightVision;
 
 
 @Autonomous
-public class strafeTestFar2 extends LinearOpMode{
+public class BlueFarStrafeTest extends LinearOpMode{
     int tagID = 20;
     int Aim = 0;
     CRServo turret ;

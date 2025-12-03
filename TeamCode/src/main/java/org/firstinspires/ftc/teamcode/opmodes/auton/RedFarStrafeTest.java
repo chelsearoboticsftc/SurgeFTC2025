@@ -16,7 +16,7 @@ import org.firstinspires.ftc.teamcode.subsystems.example.limelightVision;
 
 
 @Autonomous
-public class strafeTestFar extends LinearOpMode{
+public class RedFarStrafeTest extends LinearOpMode{
     int tagID = 20;
     int Aim = 0;
     CRServo turret ;
@@ -88,10 +88,10 @@ public class strafeTestFar extends LinearOpMode{
 
         Thread.sleep(1000);
 
-        intake.setMotorPower(1);
+        intake.setMotorPower(-1);
 
         Actions.runBlocking(
-                drive.actionBuilder(new Pose2d(  0,  0, 0))
+                drive.actionBuilder(new Pose2d(  0,  26, 0))
                         .lineToX(33)
                         .build());
 
