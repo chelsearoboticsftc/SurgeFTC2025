@@ -45,6 +45,7 @@ public class TeleopCommon extends LinearOpMode {
         double start;
         double ET;
         waitForStart();
+        shooter.initTurret(0.5);
 
         while (opModeIsActive()) {
             drive.setDrivePowers(
@@ -58,15 +59,19 @@ public class TeleopCommon extends LinearOpMode {
                 shooter.setMotorVelocity(1800);
                 telemetry.addData("bumperWasPressed", "True");
                 telemetry.update();
+//
+//                if(gamepad2.right_trigger >= 0.75){
+//                    shooter.setTurretPower(-0.1);
+//                }
+//                else if(gamepad2.left_trigger >= 0.75){
+//                    shooter.setTurretPower(0.1);
+//                }else shooter.setTurretPower(0);
 
-                if(gamepad2.right_trigger >= 0.75){
-                    shooter.setTurretPower(-0.1);
-                }
-                else if(gamepad2.left_trigger >= 0.75){
-                    shooter.setTurretPower(0.1);
-                }else shooter.setTurretPower(0);
 
+            }
 
+            if(gamepad1.xWasPressed()){
+                shooter.initTurret(0.5);
             }
 //
 //                shooter.hoodAngleNear();
@@ -112,33 +117,21 @@ public class TeleopCommon extends LinearOpMode {
                 shooter.shoot(limelight.getresult().getBotposeAvgDist());
             } else {shooter.setMotorVelocity(1000);}
 
-            if (gamepad1.xWasPressed())
-                shooter.setTurretPower(0.1);
+//            if (gamepad1.xWasPressed())
+//                shooter.setTurretPower(0.1);
 
 
             ;
-            telemetry.addData("servoPosition", shooter.getElevatorPosition());
+           // telemetry.addData("servoPosition", shooter.getElevatorPosition());
 
 
-            telemetry.addData("bumperPosition", gamepad2.right_bumper);
+         //   telemetry.addData("bumperPosition", gamepad2.right_bumper);
 
 
-            telemetry.addData("Velocity", shooter.getVelocity());
-            if (limelight.getresult() != null) {
-                if (limelight.getresult().isValid()) {
+       //     telemetry.addData("Velocity", shooter.getVelocity());
 
 
-                    telemetry.addData("Pose2d that the limelight gives", botpose);
-                    telemetry.addData("tx", limelight.getresult().getTx());
-                    telemetry.addData("ty", limelight.getresult().getTy());
-                    telemetry.addData("pos", botpose.position);
-                    telemetry.addData("heading", botpose.heading);
-                    telemetry.addData("Distance", limelight.getresult().getBotposeAvgDist());
-                    telemetry.update();
 
-                }
-
-            }
 
 //            if (gamepad1.bWasPressed()) {
 //                if (limelight.getresult().getTx() < -0.5){
@@ -170,6 +163,8 @@ public class TeleopCommon extends LinearOpMode {
 //            }
 //            telemetry.update();
 //        }
+            telemetry.addData("Tx", limelight.getresult().getTx());
+            telemetry.update();
 //   }
 
             if (gamepad1.bWasPressed()) {
@@ -179,16 +174,22 @@ public class TeleopCommon extends LinearOpMode {
 
                 //ET = 0;
 
-                while (Math.abs(limelight.getresult().getTx()) > 2 && myTimer.seconds() < 2) {
-                    error = limelight.getresult().getTx();
-                    shooter.setTurretPower(-Math.signum(error)*Math.max(Math.abs(error * 0.006),0.09));
-                    limelight.getresult().getBotposeAvgDist();
-                    //ET = getRuntime() - start
-                    myTimer.seconds();
+//                while (Math.abs(limelight.getresult().getTx()) > 2 && myTimer.seconds() < 2) {
+//                    error = limelight.getresult().getTx();
+//                    shooter.setTurretPower(-Math.signum(error)*Math.max(Math.abs(error * 0.006),0.09));
+//                    limelight.getresult().getBotposeAvgDist();
+//                    //ET = getRuntime() - start
+//                    myTimer.seconds();
+//
+//                    telemetry.addData("turning",limelight.getresult().getTx());
+//                }
+//                shooter.setTurretPower(0);
 
-                    telemetry.addData("turning",limelight.getresult().getTx());
+                if(limelight.getresult().isValid()){
+                    telemetry.addData("Current Pos", shooter.getTurretPos());
+                    telemetry.update();
+                    shooter.moveTurret(-limelight.getresult().getTx());
                 }
-                shooter.setTurretPower(0);
 
             }
         }

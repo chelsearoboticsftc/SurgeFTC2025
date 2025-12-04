@@ -42,21 +42,8 @@ public class RedFarStrafeTest extends LinearOpMode{
 
         //shoot
 
-        myTimer.reset();
-        start = getRuntime();
+        shooter.moveTurret(-limelight.getresult().getTx());
 
-        //ET = 0;
-
-        while (Math.abs(limelight.getresult().getTx()) > 2 && myTimer.seconds() < 2) {
-            error = limelight.getresult().getTx();
-            shooter.setTurretPower(-Math.signum(error)*Math.max(Math.abs(error * 0.008),0.07));
-            limelight.getresult().getBotposeAvgDist();
-            //ET = getRuntime() - start
-            myTimer.seconds();
-
-            telemetry.addData("turning",limelight.getresult().getTx());
-        }
-        shooter.setTurretPower(0);
         shooter.shoot(limelight.getresult().getBotposeAvgDist());
         Thread.sleep(2000);
         shooter.setIndexPower(0.75);
@@ -77,7 +64,8 @@ public class RedFarStrafeTest extends LinearOpMode{
 
         Actions.runBlocking(
                 drive.actionBuilder(new Pose2d(  0,  0, 0))
-                        .strafeTo(new Vector2d(0, 26))
+                        .lineToX(26)
+                        .turnTo(Math.toRadians(-90))
                         .build());
 
         Thread.sleep(1000);
@@ -85,8 +73,8 @@ public class RedFarStrafeTest extends LinearOpMode{
         intake.setMotorPower(-1);
 
         Actions.runBlocking(
-                drive.actionBuilder(new Pose2d(  0,  26, 0))
-                        .lineToX(33)
+                drive.actionBuilder(new Pose2d(  26,  0, Math.toRadians(-90)))
+                        .lineToY(-33)
                         .build());
 
                 intake.setMotorPower(0);
@@ -94,31 +82,25 @@ public class RedFarStrafeTest extends LinearOpMode{
                 Thread.sleep(1000);
 
         Actions.runBlocking(
-                drive.actionBuilder(new Pose2d(  33,  26, 0))
-                        .lineToX(0)
+                drive.actionBuilder(new Pose2d(  26,  -33, Math.toRadians(-90)))
+                        .lineToY(0)
                         .build());
 
         Thread.sleep(1000);
 
 
         Actions.runBlocking(
-                drive.actionBuilder(new Pose2d(  0,  26, 0))
-                        .strafeTo(new Vector2d(0, -26))
+                drive.actionBuilder(new Pose2d(  26,  0, Math.toRadians(-90)))
+                        .turnTo(Math.toRadians(90))
+                        .lineToX(0)
                         .build());
 
-                myTimer.reset();
-        start = getRuntime();
 
-        //ET = 0;
 
-        while (Math.abs(limelight.getresult().getTx()) > 2 && myTimer.seconds() < 2) {
-            error = limelight.getresult().getTx();
-            shooter.setTurretPower(-Math.signum(error)*Math.max(Math.abs(error * 0.008),0.07));
-            limelight.getresult().getBotposeAvgDist();
-            //ET = getRuntime() - start
-            myTimer.seconds();
-
-            telemetry.addData("turning",limelight.getresult().getTx());
+        if(limelight.getresult().isValid()){
+            telemetry.addData("Current Pos", shooter.getTurretPos());
+            telemetry.update();
+            shooter.moveTurret(-limelight.getresult().getTx());
         }
         shooter.setTurretPower(0);
         shooter.shoot(limelight.getresult().getBotposeAvgDist());

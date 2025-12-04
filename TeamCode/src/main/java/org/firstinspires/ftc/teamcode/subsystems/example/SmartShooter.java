@@ -11,6 +11,8 @@ import com.qualcomm.robotcore.hardware.CRServoImpl;
 
 import org.firstinspires.ftc.teamcode.utils.LookupTable;
 
+import java.util.DoubleSummaryStatistics;
+
 public class SmartShooter {
 
     //Example declare a DcMotorEx object as part of this class called 'motorName'
@@ -20,7 +22,9 @@ public class SmartShooter {
     CRServo elevator;
 
     Servo servo3;
-    CRServo turret;
+    Servo turret;
+
+    double newPos;
 
     //Declare any other global variables for this class here
     private final LookupTable distanceToVelocity = new LookupTable(SmartShooterConstants.LOOKUP_TABLE);
@@ -30,7 +34,7 @@ public class SmartShooter {
         //this.motor2 = hardwareMap.get(DcMotorEx.class, SmartShooterConstants.MOTOR_NAME2);
         this.elevator = hardwareMap.get(CRServo.class,"elevator");
         this.servo3 = hardwareMap.get(Servo.class, "servo3");
-        this.turret = hardwareMap.get(CRServoImplEx.class, "turret");
+        this.turret = hardwareMap.get(Servo.class, "turret");
         this.index = hardwareMap.get(DcMotorEx.class,SmartShooterConstants.MOTOR_NAME2);
         motor1.setZeroPowerBehavior(SmartShooterConstants.ZERO_POWER_BEHAVIOR);
         index.setZeroPowerBehavior(SmartShooterConstants.ZERO_POWER_BEHAVIOR.BRAKE);
@@ -136,14 +140,32 @@ public class SmartShooter {
     public void getMotorVelocity() {
        this.motor1.getVelocity();
     }
-    public void turretLeft(){
-        turret.setPower(0.4);
+//    public void turretLeft(){
+//        turret.setPower(0.4);
+//    }
+//    public void turretRight(){
+//        turret.setPower(-0.4);
+//    }
+    public void  setTurretPower(double power){
+
     }
-    public void turretRight(){
-        turret.setPower(-0.4);
-    }
-    public void setTurretPower(double power){turret.setPower(power);}
-    public void setIndexPower(double power){
+
+
+
+   public void setIndexPower(double power){
         index.setPower(power);
     }
+    public void moveTurret(double angle){
+       newPos = turret.getPosition();
+       turret.setPosition(Math.max((newPos + angle * 0.00917),0));
+
+    }
+
+    public double getTurretPos(){
+        return turret.getPosition();
+    }
+    public void initTurret(double power){
+        turret.setPosition(power);
+    }
+    //left=1 right=0
 }

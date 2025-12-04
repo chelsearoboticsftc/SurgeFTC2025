@@ -17,4 +17,6 @@ public class ShooterConstants {
     public static final int MOTOR_NAME_A_POSITION = 500;
     public static final int MOTOR_NAME_B_POSITION = 1000;
     public static double MOTOR_NAME_POSITION_P = 5.0;
+
+
 }
