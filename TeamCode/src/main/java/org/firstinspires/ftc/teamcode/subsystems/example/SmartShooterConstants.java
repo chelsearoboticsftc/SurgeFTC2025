@@ -29,9 +29,10 @@ public class SmartShooterConstants {
         // - Distances should be in the same units used for measuring the distance between
         // the robot and the goal
         // - Velocities should be in encoder ticks per second
-        new Pair(1.067, 1650),
-        new Pair(2.032, 1850),
-        new Pair(3.3, 2400),
-            new Pair(3.1,2300 )
+        new Pair(1.067, 1750),
+        new Pair(2.032, 1900),
+        new Pair(3.3, 2650),
+            new Pair(2.54, 1975),
+            new Pair(3.1, 2500)
     );
 }

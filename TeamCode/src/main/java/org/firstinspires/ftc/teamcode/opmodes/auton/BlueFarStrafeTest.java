@@ -1,5 +1,7 @@
+
 package org.firstinspires.ftc.teamcode.opmodes.auton;
 
+import com.acmerobotics.roadrunner.Vector2d;
 import com.acmerobotics.roadrunner.ftc.Actions;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -36,36 +38,35 @@ public class BlueFarStrafeTest extends LinearOpMode{
         double ET;
         waitForStart();
         if (isStopRequested()) return;
+        shooter.initTurret(0.60);
+        shooter.setMotorVelocity(1000);
+
 
         //shoot
-        myTimer.reset();
-        start = getRuntime();
+        Thread.sleep(750);
+        Actions.runBlocking(
+                drive.actionBuilder(new Pose2d(  0,  0, 0))
+                        .lineToX(10)
+                        .build());
 
-        //ET = 0;
-
-        while (Math.abs(limelight.getresult().getTx()) > 2 && myTimer.seconds() < 2) {
-            error = limelight.getresult().getTx();
-            shooter.setTurretPower(-Math.signum(error)*Math.max(Math.abs(error * 0.008),0.07));
-            limelight.getresult().getBotposeAvgDist();
-            //ET = getRuntime() - start
-            myTimer.seconds();
-
-            telemetry.addData("turning",limelight.getresult().getTx());
+        if(limelight.getresult().isValid()){
+            telemetry.addData("Current Pos", shooter.getTurretPos());
+            telemetry.update();
+            shooter.moveTurret(-limelight.getresult().getTx());
         }
 
-        shooter.setTurretPower(0);
+
         shooter.shoot(limelight.getresult().getBotposeAvgDist());
         Thread.sleep(2000);
         shooter.setIndexPower(0.75);
+        Thread.sleep(1000);
+        intake.setMotorPower(-1);
+        Thread.sleep(250);
+        intake.setMotorPower(0);
         Thread.sleep(500);
         intake.setMotorPower(-1);
-        Thread.sleep(500);
+        Thread.sleep(1000);
         shooter.setIndexPower(0);
-        Thread.sleep(500);
-        shooter.setIndexPower(0.75);
-        Thread.sleep(1500);
-        shooter.setIndexPower(0);
-
 
         shooter.setMotorVelocity(0);
         intake.setMotorPower(0);
@@ -73,31 +74,95 @@ public class BlueFarStrafeTest extends LinearOpMode{
 
 
         Actions.runBlocking(
-                drive.actionBuilder(new Pose2d(  0,  0, 0))
-                        .lineToX(-22)
-//                        .turnTo(-1.57)
-//                        .build());
-//
-//        Actions.runBlocking(
-//                drive.actionBuilder(new Pose2d(  0,  0, 0))
-//                        .lineToX(-26)
+                drive.actionBuilder(new Pose2d(  10,  0, 0))
+                        .lineToX(26)
+                        .turnTo(Math.toRadians(90))
+                        .build());
+
+        Thread.sleep(1000);
+
+        intake.setMotorPower(-1);
+
+        Actions.runBlocking(
+                drive.actionBuilder(new Pose2d(  26,  0, Math.toRadians(90)))
+                        .lineToY(35)
+                        .build());
+
+        intake.setMotorPower(0);
+
+        Thread.sleep(1000);
+
+        Actions.runBlocking(
+                drive.actionBuilder(new Pose2d(  26,  35, Math.toRadians(90)))
+                        .lineToY(0)
+                        .build());
+
+        Thread.sleep(1000);
+
+
+        Actions.runBlocking(
+                drive.actionBuilder(new Pose2d(  26,  0, Math.toRadians(90)))
+                        .turnTo(Math.toRadians(0))
+                        .build());
+
+        Actions.runBlocking(
+                drive.actionBuilder(new Pose2d(  26,  0, 0))
+                        .lineToX(0)
+                        .build());
+
+
+
+
+        if(limelight.getresult().isValid()){
+            telemetry.addData("Current Pos", shooter.getTurretPos());
+            telemetry.update();
+            shooter.moveTurret(-limelight.getresult().getTx());
+        }
+
+
+        shooter.shoot(limelight.getresult().getBotposeAvgDist());
+        Thread.sleep(2000);
+        shooter.setIndexPower(0.75);
+        Thread.sleep(1000);
+        intake.setMotorPower(-1);
+        Thread.sleep(250);
+        intake.setMotorPower(0);
+        Thread.sleep(500);
+        intake.setMotorPower(-1);
+        Thread.sleep(1000);
+        shooter.setIndexPower(0);
+
+        shooter.setMotorVelocity(0);
+        intake.setMotorPower(0);
+        shooter.setIndexPower(0);
+
+Actions.runBlocking(
+        drive.actionBuilder(new Pose2d(  0,  0, 0))
+                .strafeTo(new Vector2d(0, 38))
                 .build());
 
 
+//        Actions.runBlocking(
+//                drive.actionBuilder(new Pose2d(  0,  0, 0))
+//
+//                                .build());
 
 
+        //shoot
 
-
-
-
-
-
-
-
+//        Thread.sleep(3000);
+//        Actions.runBlocking(
+//                drive.actionBuilder(new Pose2d(  0,  0, 0))
+//                        .strafeTo(new Vector2d(30, -42))
+//                        .build());
 
 
 
 
 
     }
+
+
+
+
 }

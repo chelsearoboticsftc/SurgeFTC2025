@@ -116,6 +116,7 @@ public class TeleopCommon extends LinearOpMode {
             if (gamepad2.left_bumper) {
                 shooter.shoot(limelight.getresult().getBotposeAvgDist());
             } else {shooter.setMotorVelocity(1000);}
+            telemetry.addData("distance", limelight.getresult().getBotposeAvgDist());
 
 //            if (gamepad1.xWasPressed())
 //                shooter.setTurretPower(0.1);
